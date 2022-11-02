@@ -1,7 +1,8 @@
 import './App.css';
+import MainNavigation from "./components/navigations/MainNavigation";
 function App() {
   return(
-        <h1>Hi</h1>
+        <MainNavigation/>
       );
 }
 
