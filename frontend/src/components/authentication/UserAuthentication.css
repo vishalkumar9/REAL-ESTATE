@@ -1,0 +1,85 @@
+.userAuth-div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 95vh;
+    background-color: #282c34;
+    /*background-image: linear-gradient(black,#1b2430);*/
+}
+.userAuth-div .userAuth-mode-div button{;
+    font-size: medium;
+    width: 10rem;
+    height: 50px;
+    border-radius: 5px;
+    border-width: 0;
+    background-color: #283239;
+    transition: 0.3s ease-in-out;
+    margin: 0.5rem;
+    margin-top: 30px;
+    color: aliceblue;
+}
+
+.userAuth-div .userAuth-mode-div button:hover{
+    color: black;
+    background-color: #17cf97;
+}
+
+.userAuth-div .userAuth-main-div{
+    width: 20rem;
+    height: fit-content;
+    border: 1px solid;
+    padding: 5px 5px;
+    border-radius: 1rem;
+    border-color: #F4C430;
+    box-shadow: -5px -5px #F4C430;
+}
+.userAuth-div .userAuth-main-div .userAuth-input-div{
+    width: 100%;
+    padding: 10px 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.userAuth-div .userAuth-main-div .userAuth-input-div h1{
+    /*margin-top: 5rem;*/
+    margin-bottom: 30px;
+    color: #F4C430;
+}
+
+.userAuth-div .userAuth-main-div .userAuth-input-div label{
+    font-size: large;
+    color: aliceblue;
+    position: relative;
+    top:25px;
+    right:100px;
+}
+
+.userAuth-div .userAuth-main-div .userAuth-input-div input{
+    width: 18rem;
+    margin-top: 30px;
+    height: 50px;
+    border-radius: 5px;
+    border-width: 0;
+    padding: 20px;
+    outline-color: #F4C430;
+}
+
+.userAuth-div .userAuth-main-div .userAuth-input-div button{
+    font-size: medium;
+    width: 10rem;
+    margin-top: 20px;
+    height: 50px;
+    border-radius: 5px;
+    border-width: 0;
+    background-color: #17cf97;
+    transition: 0.3s ease-in-out;
+}
+
+.userAuth-div .userAuth-main-div .userAuth-input-div button:hover{
+    color: aliceblue;
+    background-color: #F4C430;
+}

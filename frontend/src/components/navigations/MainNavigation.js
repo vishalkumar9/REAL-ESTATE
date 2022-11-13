@@ -11,7 +11,7 @@ const  MainNavigation = () => {
     const navLinks = [
         {
             content : "Home",
-            url : "/home"
+            url : "/"
         },
         {
             content : "About",
@@ -38,7 +38,7 @@ const  MainNavigation = () => {
 
     if(isMobile){
         return (
-            <div>
+            <div className="main-navi-div">
                 <nav>
                     <div>
                         <img src = {logo}/>

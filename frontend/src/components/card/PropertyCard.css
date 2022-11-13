@@ -1,0 +1,16 @@
+.full-card{
+    margin: 10px 0;
+    padding: 2rem;
+    width: 30rem;
+    height: fit-content;
+    border: 1px solid;
+    border-color: aliceblue;
+    box-shadow: 0 5px 15px gray;
+    /*border-radius: 1rem;*/
+}
+
+.full-card .card-middlehalf{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
