@@ -1,13 +1,12 @@
 const User = require("../schema/userSchema"); // have predefined schema os user
 const HttpError = require("../schema/httpError");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 const userLogin = async(req,res,next)=>{
     // this function is responsible for user login
 
     const {email, password} = req.body;
-
-    console.log(email);
 
     let existingUser, isValidPassword=true;
 
@@ -39,24 +38,42 @@ const userLogin = async(req,res,next)=>{
         return next(error);
     }
 
-    res.json({message: "login successfully"});
+    let token;
+    try {
+        token = jwt.sign(
+            { userId: existingUser.id, email: existingUser.email },
+            "something_private_which_i_dont_tell_to",
+            { expiresIn: "1h" }
+        );
+    } catch (err) {
+        const error = new HttpError("Log in failed, please try again.", 500);
+        return next(error);
+    }
+
+    res.json({
+        userId: existingUser.id,
+        email: existingUser.email,
+        token: token,
+    });
+
 };
 
 const userSignup = async (req,res,next)=>{
     // this function is responsible for user signup
+
     const {name,email,password} = req.body;
 
-    let exisitingUser;
+    let existingUser;
 
     try{
-        exisitingUser = await User.findOne({email:email});
+        existingUser = await User.findOne({email:email});
     }catch (err){
 
         const error = new HttpError("Sign up failed, please try again later",500);
         return next(error);
     }
 
-    if(exisitingUser){
+    if(existingUser){
         const error = new HttpError("User already exist, please try login or use new email for signup",422);
         return next(error);
     }
@@ -83,7 +100,21 @@ const userSignup = async (req,res,next)=>{
         return next(err);
     }
 
-    res.status(200).json({message: "Sign up successfully"});
+    let token;
+    try {
+        token = jwt.sign(
+            { userId: createdNewUser.id, email: createdNewUser.email },
+            "something_private_which_i_dont_tell_to",
+            { expiresIn: "1h" }
+        );
+    } catch (err) {
+        const error = new HttpError("Signing up failed, please try again.", 500);
+        return next(error);
+    }
+
+    res
+        .status(201)
+        .json({ userId: createdNewUser.id, email: createdNewUser.email, token: token });
 }
 
 exports.userLogin = userLogin;

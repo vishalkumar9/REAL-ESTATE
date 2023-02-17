@@ -2,14 +2,12 @@ const express = require("express");
 const bodyParser = require('body-parser');
 const HttpError = require("./schema/httpError");
 const mongoose = require('mongoose');
-const {mongo} = require("mongoose");
 const userRoutes = require("./routes/userRoutes");
-const cors = require("cors");
-
+const propertyRoutes = require("./routes/propertyRoutes");
+const formDataParser = require("./middleware/parseData");
 const server = express();
 
-// middleware start
-server.use(bodyParser.json());
+server.use(formDataParser);
 
 server.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
@@ -23,6 +21,7 @@ server.use((req, res, next) => {
 });
 
 server.use("/users",userRoutes); // it will handle the authentication such as login and signup
+server.use("/property",propertyRoutes);
 
 server.use((req,res,next)=>{
     const error = new HttpError("Page Not Found",404);
