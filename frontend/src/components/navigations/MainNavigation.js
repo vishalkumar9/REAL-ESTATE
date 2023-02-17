@@ -1,31 +1,26 @@
-import React, {useState} from "react";
-import logo from "../image/logo.svg"
+import React, {useContext, useState} from "react";
 import {Link} from "react-router-dom";
-import "./MainNavigations.css";
+
+// third party import
 import { useMediaQuery } from 'react-responsive'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faXmark, faBars} from "@fortawesome/free-solid-svg-icons";
+import Dropdown from 'react-bootstrap/Dropdown';
 
-const  MainNavigation = () => {
+// import from file
+import {AuthContext} from "../context/AuthContext";
+import logo from "../image/logo.svg"
 
-    const navLinks = [
-        {
-            content : "Home",
-            url : "/"
-        },
-        {
-            content : "About",
-            url : "/About"
-        },
-        {
-            content : "Search",
-            url : "/search"
-        },
-        {
-            content : "Register",
-            url : "/register"
-        },
-    ]
+// CSS FILE
+import "./MainNavigations.css";
+
+
+
+const  MainNavigation = (props) => {
+
+const AuthC =useContext(AuthContext);
+
+    const navLinks = props.routes;
 
     const [isClicked,setIsClicked] = useState(false);
 
@@ -38,6 +33,7 @@ const  MainNavigation = () => {
 
     if(isMobile){
         return (
+            <Dropdown>
             <div className="main-navi-div">
                 <nav>
                     <div>
@@ -47,7 +43,8 @@ const  MainNavigation = () => {
                         <ul className={isClicked ? "navbar active" : "navbar"}>
                             {navLinks.map((item,i)=>(
                                 <li key = {i} className={!i && "active"}>
-                                    <Link to={item.url}>{item.content}</Link>
+                                    { item.content==="Logout" &&  <Link onClick = {AuthC.logout}>{item.content}</Link> }
+                                    { item.content!=="Logout" &&  <Link to={item.url}>{item.content}</Link> }
                                 </li>
                             ))}
                         </ul>
@@ -59,6 +56,7 @@ const  MainNavigation = () => {
                     </div>
                 </nav>
             </div>
+            </Dropdown>
         );
     }
     else {
@@ -72,7 +70,8 @@ const  MainNavigation = () => {
                         <ul className="navbar">
                             {navLinks.map((item,i)=>(
                                 <li key = {i} className={!i && "active"}>
-                                    <Link to={item.url}>{item.content}</Link>
+                                    { item.content==="Logout" &&  <Link onClick = {AuthC.logout}>{item.content}</Link> }
+                                    { item.content!=="Logout" && <Link to={item.url}>{item.content}</Link> }
                                 </li>
                             ))}
                         </ul>

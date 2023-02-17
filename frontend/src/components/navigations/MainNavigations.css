@@ -2,14 +2,25 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #1b2430;
+    background-color: rgb(18,18,18);
     padding: 20px 80px;
-    box-shadow: 0 5px 15px gray;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
 }
 .navbar{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.dropdown-menu{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-right: 20rem;
 }
 
 .navbar li {
@@ -25,7 +36,7 @@ nav{
     transition: 0.3s ease-in-out    ;
 }
 .navbar li a:hover{
-    color: #17cf97;
+    color: #c037a9;
 }
 
 .navbar .active a{
@@ -36,7 +47,7 @@ nav{
     content: "";
     width:30%;
     height: 2px;
-    background-color: #17cf97;
+    background-color: #c037a9;
     position: absolute;
     bottom: -3px;
     left : 20px;
@@ -65,7 +76,7 @@ nav{
         align-items: flex-start;
         justify-content: flex-start;
         position: fixed;
-        top: 90px;
+        top: 92px;
         right: -300px;
         width: 300px;
         height: 100vh;

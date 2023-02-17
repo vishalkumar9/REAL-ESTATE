@@ -5,7 +5,8 @@
     align-items: center;
     justify-content: center;
     height: 95vh;
-    background-color: #282c34;
+    /*background-color: #282c34;*/
+    background-color: rgb(24,24,24);
     /*background-image: linear-gradient(black,#1b2430);*/
 }
 .userAuth-div .userAuth-mode-div button{;

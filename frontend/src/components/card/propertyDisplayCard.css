@@ -1,0 +1,35 @@
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 80%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-header {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.modal-image-slider {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.modal-image-slider img {
+    width: 50%;
+}
+
+.modal-body {
+    font-size: 16px;
+    text-align: center;
+}
