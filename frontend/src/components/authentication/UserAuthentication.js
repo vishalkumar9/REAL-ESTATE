@@ -1,13 +1,16 @@
-import React, {useState} from "react";
-import { useToast} from '@chakra-ui/react'
+import React, {useState,useContext} from "react";
+import {useNavigate} from "react-router-dom";
 
 import "./UserAuthentication.css";
+import {AuthContext} from "../context/AuthContext";
 
 
 const UserAuthentication = () => {
    // mode = false for signup and true for login
 
-    const toast = useToast();
+    const AuthC = useContext(AuthContext);
+
+    let navigate = useNavigate();
     const [mode,setMode] = useState(false);
     const [isEmail,setIsEmail] = useState("");
     const [isName,setIsName] = useState("");
@@ -15,41 +18,41 @@ const UserAuthentication = () => {
 
     const handleRequest = async(e) =>{
         e.preventDefault();
-        console.log(isEmail);
-        console.log(isPassword);
         if(mode){
             try{
+                const formData = new FormData();
+                formData.append("email",isEmail);
+                formData.append("password",isPassword);
+
                 const response = await fetch("http://localhost:5000/users/login",{
                     method: "POST",
-                    headers:{
-                        "Content-type": "application/json",
-                    },
-                    body:JSON.stringify({
-                        email: isEmail,
-                        password: isPassword
-                    })
+                    body:formData,
                 })
                 const responseData = await response.json();
                 if(!response.ok) throw new Error(responseData.message);
+
+                AuthC.login(responseData.userId,responseData.userName,responseData.token);
+                navigate("/");
             }catch (err){
                 console.log(err);
             }
         }else{
             try{
+
+                const formData = new FormData();
+                formData.append("name",isName);
+                formData.append("email",isEmail);
+                formData.append("password",isPassword);
+
                 const response = await fetch("http://localhost:5000/users/signup",{
                     method: "POST",
-                    headers:{
-                        "Content-type": "application/json",
-                    },
-                    body:JSON.stringify({
-                        name:isName,
-                        email: isEmail,
-                        password: isPassword
-                    })
+                    body:formData,
                 })
                 const responseData = await response.json();
+                console.log(responseData.message);
                 if(!response.ok) throw new Error(responseData.message);
-
+                AuthC.login(responseData.userId,responseData.userName,responseData.token);
+                navigate("/");
             }catch (err){
                 console.log(err);
             }

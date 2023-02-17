@@ -1,0 +1,181 @@
+.form_outer_div{
+    background:transparent;
+    /*box-shadow: rgb(38, 57, 77) 0 20px 30px -20px;*/
+    padding: 20px 20px;
+    margin-top: 3%;
+    margin-left: 40px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 50vh;
+    width: 50rem;
+    max-width: 50rem;
+    min-width: 50rem;
+}
+
+.form_outer_div::-webkit-scrollbar{
+    display: none;
+}
+
+.form_outer_div .uploadForm_div h2{
+    color: aliceblue;
+    margin-top: 4rem;
+}
+
+.form_outer_div .uploadForm_div .displayUploadImage{
+    display: flex;
+    flex-direction: row;
+    height: 5rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.form_outer_div .uploadForm_div .displayUploadImage::-webkit-scrollbar{
+    display: none;
+}
+
+
+.form_outer_div .uploadForm_div .displayUploadImage img{
+    padding: 10px 10px;
+    min-width: 5rem;
+    max-width: 5rem;
+}
+
+
+
+.form_outer_div .form_input_div{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.form_outer_div .form_input_div .option{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.form_outer_div .form_input_div label{
+    font-size: x-large;
+    font-family: "Gill Sans MT";
+    background: aliceblue;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+.form_outer_div .form_input_div span{
+    position: relative;
+    top: 20px;
+    right:10px;
+}
+.form_outer_div .form_input_div input{
+    width: 80%;
+    border:0;
+    outline: 0;
+    font-size: large;
+    color: aliceblue;
+    background: transparent;
+    border-bottom: 2px solid aliceblue;
+    margin-top: 1.2rem;
+}
+
+
+.form_outer_div .form_input_div button {
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: x-large;
+    font-family: Inter,-apple-system,system-ui,Roboto,"Helvetica Neue",Arial,sans-serif;
+    height: 44px;
+    line-height: 44px;
+    outline: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    pointer-events: auto;
+    position: relative;
+    text-align: center;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: top;
+    white-space: nowrap;
+    width: fit-content;
+    border: 1px solid aliceblue;
+    margin: 10px 10px;
+    color:aliceblue;
+    background: transparent;
+    border-top-right-radius: 1rem;
+}
+
+.form_outer_div .uploadForm_div .active{
+    background-color: #cc93d8;
+    color: #011925;
+    border-color: #011925;
+}
+
+
+.submitButton button{
+    margin: 30px 0;
+    background-color: initial;
+    background-image: linear-gradient(-180deg, #c037a9, #301934);
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Inter,-apple-system,system-ui,Roboto,"Helvetica Neue",Arial,sans-serif;
+    height: 44px;
+    line-height: 44px;
+    outline: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    pointer-events: auto;
+    position: relative;
+    text-align: center;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: top;
+    white-space: nowrap;
+    width: 20%;
+    border: 0;
+}
+
+.blockButton button{
+    margin: 30px 0;
+    background-color: initial;
+    background-image: linear-gradient(-180deg, #301934, #301934);
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Inter,-apple-system,system-ui,Roboto,"Helvetica Neue",Arial,sans-serif;
+    height: 44px;
+    line-height: 44px;
+    outline: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    pointer-events: auto;
+    position: relative;
+    text-align: center;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: top;
+    white-space: nowrap;
+    width: 20%;
+    border: 0;
+}
+
+.submitButton button:hover {
+    background: #c037a9;
+}
+.submitButton button:active{
+    background: #301934;
+}
+
+.blockButton button:disabled{
+    background-color: #301934;
+}
+
+/*!* Parent background *!*/
+/*#F5F5FA*/
+/*}*/
