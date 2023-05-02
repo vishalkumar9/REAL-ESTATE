@@ -12,11 +12,13 @@ const propertySchema = new Schema({
     },
     purposeType: {
         type: String,
-        required: true
+        required: true,
+        index: true,
     },
     type: {
         type: String,
-        required: true
+        required: true,
+        index: true,
     },
     constructionStatus: {
         type: String,
@@ -40,21 +42,14 @@ const propertySchema = new Schema({
             return this.type!=="Plot" && this.type!=="Agricultural Land";
         }
     },
-    monthlyRent: {
-        type: String,
-        required: function (){
-            return this.purposeType !== "Sell";
-        }
-    },
     builtUpArea: {
         type: String,
         required: true
     },
-    propertyPrice: {
+    price: {
         type: String,
-        required: function (){
-            return this.purposeType === "Sell";
-        }
+        required: true,
+        index: true,
     },
     length: {
         type: String,
@@ -82,15 +77,12 @@ const propertySchema = new Schema({
             return this.purposeType === "PG/Co-Living";
         }
     },
-    state:{
-        type:String,
-        required: true
-    },
-    district:{
+    city:{
         type: String,
-        required: true
+        required: true,
+        index: true,
     },
-    landmark:{
+    location:{
         type:String,
         required: true
     },

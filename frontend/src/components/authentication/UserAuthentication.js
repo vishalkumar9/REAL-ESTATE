@@ -1,12 +1,16 @@
 import React, {useState,useContext} from "react";
 import {useNavigate} from "react-router-dom";
 
-import "./UserAuthentication.css";
 import {AuthContext} from "../context/AuthContext";
+
+import "./UserAuthentication.css";
+
+import {toast, ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import {BACKEND_USER_URL} from "../../config";
 
 
 const UserAuthentication = () => {
-   // mode = false for signup and true for login
 
     const AuthC = useContext(AuthContext);
 
@@ -24,17 +28,17 @@ const UserAuthentication = () => {
                 formData.append("email",isEmail);
                 formData.append("password",isPassword);
 
-                const response = await fetch("http://localhost:5000/users/login",{
+                const response = await fetch(`${BACKEND_USER_URL}/login`,{
                     method: "POST",
                     body:formData,
                 })
                 const responseData = await response.json();
                 if(!response.ok) throw new Error(responseData.message);
 
-                AuthC.login(responseData.userId,responseData.userName,responseData.token);
+                AuthC.login(responseData.userId,responseData.userName,responseData.email,responseData.token);
                 navigate("/");
             }catch (err){
-                console.log(err);
+                toast.error("Login Failed",{autoClose:1000});
             }
         }else{
             try{
@@ -44,17 +48,18 @@ const UserAuthentication = () => {
                 formData.append("email",isEmail);
                 formData.append("password",isPassword);
 
-                const response = await fetch("http://localhost:5000/users/signup",{
+                const response = await fetch(`${BACKEND_USER_URL}/signup`,{
                     method: "POST",
                     body:formData,
                 })
                 const responseData = await response.json();
                 console.log(responseData.message);
                 if(!response.ok) throw new Error(responseData.message);
-                AuthC.login(responseData.userId,responseData.userName,responseData.token);
+                AuthC.login(responseData.userId,responseData.userName,responseData.email,responseData.token);
                 navigate("/");
+
             }catch (err){
-                console.log(err);
+                toast.error("SignUp Failed",{autoClose:1000});
             }
         }
     }
@@ -75,6 +80,7 @@ const UserAuthentication = () => {
     return (
         <div className="userAuth-div">
             <div className="userAuth-main-div">
+                <ToastContainer/>
                 <div className="userAuth-input-div">
                     <h1>{mode ? "Log In" : "Sign Up"}</h1>
                     {!mode && <label>Name</label>}

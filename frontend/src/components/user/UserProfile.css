@@ -1,7 +1,7 @@
 .user_main_div{
-    /*background: linear-gradient(to bottom,#02333c, black);*/
     background-image: linear-gradient(to top , black,#301934);
     width: 100%;
+    min-height: 95vh;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -9,7 +9,7 @@
     margin-top:5rem;
 }
 .user_main_div .user_profile_back{
-    height: 20rem;
+    height: 40vh;
     width: 100%;
     border-bottom-left-radius: 4rem;
     border-bottom-right-radius: 4rem;
@@ -18,26 +18,26 @@
     background-repeat: no-repeat;
 }
 .user_main_div .user_profile{
-    margin-top: -13rem;
+    position: absolute;
     background-color: rgba(240, 248, 255, 0.57);
     padding: 10px 10px;
-    width: fit-content;
+    width: 20rem;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
     border: 0;
     box-shadow: rgba(74, 1, 67, 0.84) 0 20px 30px -10px;
+    height: 40vh;
 }
 
 .user_main_div .user_profile #user_profile_image{
     width: 12rem;
-    height: 12rem;
-    margin-bottom: 30px;
+    height: 20vh;
+    align-self: center;
 }
-.user_main_div .user_profile .user_details h1{
-    margin-bottom: 10px;
+.user_main_div .user_profile .user_details{
+    margin-bottom:2vh;
 }
 
 
@@ -76,7 +76,7 @@
     background: #301934;
 }
 
-.user_main_div .headingUploadText{
+.user_main_div .headingText{
     margin-top: 10rem;
     text-align: center;
     font-size: 60px;
@@ -149,4 +149,8 @@
     height: 150px;
     background: white;
     border-radius: 30px;
+}
+
+.user_main_div .display_owner_property{
+    color: aliceblue;
 }

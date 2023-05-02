@@ -1,5 +1,7 @@
-import {React, useContext, useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
+import {BACKEND_PROPERTY_URL} from "../../config";
 import {AuthContext} from "../context/AuthContext";
+import {toast} from "react-toastify";
 export const useForm = () => {
 
     const AuthC = useContext(AuthContext);
@@ -16,17 +18,15 @@ export const useForm = () => {
         countOfBathroom:"",
         countOfBalcony:"",
         countOfParking:"",
-        monthlyRent:"",
         builtUpArea:"",
-        propertyPrice:"",
+        price:"",
         length:"",
         width:"",
         furnishType:"",
         pgFor:"",
         suitedFor:"",
-        state:"",
         district:"",
-        landmark:"",
+        location:"",
         pinCode:"",
         houseNo:"",
     })
@@ -43,7 +43,7 @@ export const useForm = () => {
 
     useEffect(() => {
         setPropertyData(propertyData => ({
-            ...propertyData,monthlyRent:"",bhk:"",pgFor:"",suitedFor:"",propertyPrice:"",type: "",countOfBathroom:"",countOfBalcony:"",countOfParking:""
+            ...propertyData,bhk:"",pgFor:"",suitedFor:"",type: "",countOfBathroom:"",countOfBalcony:"",countOfParking:""
         }));
     },[propertyData.purposeType])
 
@@ -57,20 +57,20 @@ export const useForm = () => {
         if(propertyData.propertyType!==""){
             if(propertyData.purposeType!==""){
                 if(propertyData.type!==""){
-                    if(propertyData.houseNo!==""&&propertyData.pinCode!==""&&propertyData.district!==""&&propertyData.state!==""&&propertyData.landmark!==""){
+                    if(propertyData.houseNo!==""&&propertyData.pinCode!==""&&propertyData.district!==""&&propertyData.location!==""){
                         if(propertyData.type==="plot" || propertyData.type==="Agricultural Land"){
-                            if(propertyData.purposeType==="Sell" && propertyData.propertyPrice!==""){
+                            if(propertyData.purposeType==="Sell" && propertyData.Price==""){
                                 setError(null);
                             }
-                            if(propertyData.purposeType!=="Sell" && propertyData.monthlyRent!==""){
+                            if(propertyData.purposeType!=="Sell" && propertyData.price!==""){
                                 setError(null);
                             }
                         }
                         else if(propertyData.propertyType==="Commercial"){
-                            if(propertyData.purposeType==="Sell" && propertyData.propertyPrice!==""){
+                            if(propertyData.purposeType==="Sell" && propertyData.price!==""){
                                 setError(null);
                             }
-                            if(propertyData.purposeType!=="Sell" && propertyData.monthlyRent!==""){
+                            if(propertyData.purposeType!=="Sell" && propertyData.price!==""){
                                 setError(null);
                             }
                         }
@@ -78,10 +78,10 @@ export const useForm = () => {
                             if(propertyData.bhk!=="" && propertyData.countOfBathroom!==""
                                 &&propertyData.constructionStatus!==""&&propertyData.furnishType!=="" &&
                                 propertyData.builtUpArea!==""){
-                                if(propertyData.purposeType==="Sell" && propertyData.propertyPrice!==""){
+                                if(propertyData.purposeType==="Sell" && propertyData.price!==""){
                                     setError(null);
                                 }
-                                if(propertyData.purposeType!=="Sell" && propertyData.monthlyRent!==""){
+                                if(propertyData.purposeType!=="Sell" && propertyData.price!==""){
                                     setError(null);
                                 }
                             }
@@ -106,36 +106,39 @@ export const useForm = () => {
             formData.append("ageOfProperty",propertyData.ageOfProperty);
             formData.append("bhk",propertyData.bhk);
             formData.append("countOfBathroom",propertyData.countOfBathroom);
-            formData.append("monthlyRent",propertyData.monthlyRent);
             formData.append("builtUpArea",propertyData.builtUpArea);
-            formData.append("propertyPrice",propertyData.propertyPrice);
+            formData.append("price",propertyData.price);
             formData.append("length",propertyData.length);
             formData.append("width",propertyData.width);
             formData.append("furnishType",propertyData.furnishType);
             formData.append("pgFor",propertyData.pgFor);
             formData.append("suitedFor",propertyData.suitedFor);
-            formData.append("state",propertyData.state);
-            formData.append("district",propertyData.district);
-            formData.append("landmark",propertyData.landmark);
+            formData.append("city",propertyData.district);
+            formData.append("location",propertyData.location);
             formData.append("pinCode",propertyData.pinCode);
             formData.append("houseNo",propertyData.houseNo);
+
 
             for(let i = 0; i<allImage.length; i++) {
                 formData.append('image', allImage[i]);
             }
 
-            console.log(...formData.entries());
-
-            const response = await fetch("http://localhost:5000/property/uploadProperty", {
+            const response = await fetch(`${BACKEND_PROPERTY_URL}/uploadProperty`, {
                 method: "POST",
                 headers: {
                     "Authorization": `Bearer ${AuthC.token}`,
                 },
                 body:formData,
             });
-            const responseData = response.json();
+            console.log(response);
+            if(response.ok){
+                toast.success("Property Uploaded",{autoClose:2000});
+            }
+            else{
+                toast.error("Please complete all required fields",{autoClose:2000});
+            }
         }catch (err){
-            console.log(err);
+            toast.error("something went wrong",{autoClose:2000});
         }
     }
 

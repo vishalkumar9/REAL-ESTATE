@@ -1,0 +1,51 @@
+
+.selected-option{
+    width: 12rem;
+    margin-top: 0.5rem;
+    background-color: rgba(35, 2, 45, 0.27);
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #2D033B;
+    cursor: pointer;
+    display: inline-block;
+    font-family: cursive;
+    font-size: 14px;
+    font-weight: 500;
+    height: 2.5rem;
+    line-height: 20px;
+    list-style: none;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+.options-container{
+    margin-top: 2rem;
+    background-color: aliceblue;
+}
+.options-container .option{
+    text-align: center;
+    font-family: cursive;
+    height: 2rem;
+    background-color: rgba(35, 2, 45, 0.27);
+    border-bottom: 1px solid rgba(35, 2, 45, 0.27);
+}
+
+.options-container .option:hover{
+    background-color: rgba(45, 3, 59, 0.73);
+    color: aliceblue;
+}
+
+@media only screen and (max-width:1400px ) {
+    .options-container{
+        margin-top: 5px;
+        background-color: aliceblue;
+    }
+}

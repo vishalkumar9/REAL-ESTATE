@@ -1,7 +1,8 @@
-import React, {useEffect, useState} from "react";
-import "./UploadProperty.css";
+import React  from "react";
 
-import {useForm} from "../hook/formHook";
+import {useForm} from "../hook/FormHook";
+
+import "./UploadProperty.css";
 
 const UploadProperty =   () => {
 
@@ -108,7 +109,7 @@ const UploadProperty =   () => {
                     <span style={{color:"red", fontSize:"large"}}>*</span>
                     <label>Monthly Rent in Rs </label>
                     <div className="option">
-                        <input type="text" name="monthlyRent" value = {propertyData.monthlyRent} onChange={handleChange}/>
+                        <input type="text" name="price" value = {propertyData.price} onChange={handleChange}/>
                     </div>
                 </div>
                 }
@@ -116,7 +117,7 @@ const UploadProperty =   () => {
                     <span style={{color:"red", fontSize:"large"}}>*</span>
                     <label>Property Price/Sq.ft in Rs </label>
                     <div className="option">
-                        <input type="text" name="propertyPrice" value = {propertyData.propertyPrice} onChange={handleChange}/>
+                        <input type="text" name="price" value = {propertyData.price} onChange={handleChange}/>
                     </div>
                 </div>
                 }
@@ -168,9 +169,9 @@ const UploadProperty =   () => {
                 </div>
                 <div className="form_input_div">
                     <span style={{color:"red", fontSize:"large"}}>*</span>
-                    <label>Landmark</label>
+                    <label>Location</label>
                     <div className="option">
-                        <input type="text" name="landmark" value = {propertyData.landmark} onChange={handleChange}/>
+                        <input type="text" name="location" value = {propertyData.location} onChange={handleChange}/>
                     </div>
                 </div>
                 <div className="form_input_div">
@@ -178,13 +179,6 @@ const UploadProperty =   () => {
                     <label>District</label>
                     <div className="option">
                         <input type="text" name="district" value = {propertyData.district} onChange={handleChange}/>
-                    </div>
-                </div>
-                <div className="form_input_div">
-                    <span style={{color:"red", fontSize:"large"}}>*</span>
-                    <label>State</label>
-                    <div className="option">
-                        <input type="text" name="state" value = {propertyData.state} onChange={handleChange}/>
                     </div>
                 </div>
                 <div className="form_input_div">

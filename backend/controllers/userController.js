@@ -2,6 +2,7 @@ const User = require("../schema/userSchema"); // have predefined schema os user
 const HttpError = require("../schema/httpError");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const Config = require("../config");
 
 const userLogin = async(req,res,next)=>{
     // this function is responsible for user login
@@ -42,7 +43,7 @@ const userLogin = async(req,res,next)=>{
     try {
         token = jwt.sign(
             { userId: existingUser.id, email: existingUser.email },
-            "something_private_which_i_dont_tell_to",
+            Config.SECRET_KEY,
             { expiresIn: "1h" }
         );
     } catch (err) {
@@ -51,6 +52,7 @@ const userLogin = async(req,res,next)=>{
     }
 
     res.json({
+        userName: existingUser.name,
         userId: existingUser.id,
         email: existingUser.email,
         token: token,
@@ -61,6 +63,7 @@ const userLogin = async(req,res,next)=>{
 const userSignup = async (req,res,next)=>{
     // this function is responsible for user signup
 
+    console.log(req.body);
     const {name,email,password} = req.body;
 
     let existingUser;
@@ -104,7 +107,7 @@ const userSignup = async (req,res,next)=>{
     try {
         token = jwt.sign(
             { userId: createdNewUser.id, email: createdNewUser.email },
-            "something_private_which_i_dont_tell_to",
+            Config.SECRET_KEY,
             { expiresIn: "1h" }
         );
     } catch (err) {
@@ -114,7 +117,12 @@ const userSignup = async (req,res,next)=>{
 
     res
         .status(201)
-        .json({ userId: createdNewUser.id, email: createdNewUser.email, token: token });
+        .json(
+            {
+                userName: createdNewUser.name,
+                userId: createdNewUser.id,
+                email: createdNewUser.email,
+                token: token });
 }
 
 exports.userLogin = userLogin;

@@ -1,13 +1,10 @@
 .userAuth-div{
-    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 95vh;
-    /*background-color: #282c34;*/
+    height: 100vh;
     background-color: rgb(24,24,24);
-    /*background-image: linear-gradient(black,#1b2430);*/
 }
 .userAuth-div .userAuth-mode-div button{;
     font-size: medium;
@@ -18,7 +15,6 @@
     background-color: #283239;
     transition: 0.3s ease-in-out;
     margin: 0.5rem;
-    margin-top: 30px;
     color: aliceblue;
 }
 
