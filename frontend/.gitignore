@@ -23,5 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 #file or direactory
-/config.js
+src/config.js
 image/
