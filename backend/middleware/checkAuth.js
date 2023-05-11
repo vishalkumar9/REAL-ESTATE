@@ -1,6 +1,5 @@
 const jwt = require("jsonwebtoken");
 const HttpError = require("../schema/httpError");
-const Config = require("../config");
 
 module.exports = (req, res, next) => {
     if (req.method === "OPTIONS") return next();
@@ -12,7 +11,7 @@ module.exports = (req, res, next) => {
         }
 
         const decodedToken = jwt.verify(
-            token,Config.SECRET_KEY,
+            token,process.env.SECRETKEY,
         );
         req.userData = { userId: decodedToken.userId };
         next();

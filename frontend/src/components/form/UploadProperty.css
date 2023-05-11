@@ -6,9 +6,10 @@
     overflow-x: hidden;
     overflow-y: auto;
     height: 50vh;
-    width: 50rem;
     max-width: 50rem;
-    min-width: 50rem;
+    min-width: 40rem;
+    max-width: 50rem;
+
 }
 
 .form_outer_div::-webkit-scrollbar{

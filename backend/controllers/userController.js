@@ -2,11 +2,14 @@ const User = require("../schema/userSchema"); // have predefined schema os user
 const HttpError = require("../schema/httpError");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const Config = require("../config");
+
+
+const cloudinary = require("cloudinary").v2;
+cloudinary.config(process.env.CLOUDINARY);
+
 
 const userLogin = async(req,res,next)=>{
     // this function is responsible for user login
-
     const {email, password} = req.body;
 
     let existingUser, isValidPassword=true;
@@ -43,8 +46,8 @@ const userLogin = async(req,res,next)=>{
     try {
         token = jwt.sign(
             { userId: existingUser.id, email: existingUser.email },
-            Config.SECRET_KEY,
-            { expiresIn: "1h" }
+            process.env.SECRETKEY,
+            { expiresIn: "24h" }
         );
     } catch (err) {
         const error = new HttpError("Log in failed, please try again.", 500);
@@ -62,10 +65,7 @@ const userLogin = async(req,res,next)=>{
 
 const userSignup = async (req,res,next)=>{
     // this function is responsible for user signup
-
-    console.log(req.body);
-    const {name,email,password} = req.body;
-
+    const {name,email,password,image} = req.body;
     let existingUser;
 
     try{
@@ -93,12 +93,22 @@ const userSignup = async (req,res,next)=>{
     const createdNewUser = new User({
         name,
         email,
-        password:hashPassword
+        password:hashPassword,
+        profileImage:null,
     });
 
+    let public_Id;
+
     try {
+        const uploader = async (path) => await cloudinary.uploader.upload(path);
+        const newPath = await uploader(image.filepath);
+        console.log(newPath);
+        createdNewUser.profileImage = newPath.url;
+        public_Id = newPath.public_id;
         await createdNewUser.save();
+
     }catch (err){
+        await cloudinary.uploader.destroy(public_Id);
         const error = new HttpError("sign up failed, please try again later",500);
         return next(err);
     }
@@ -107,8 +117,8 @@ const userSignup = async (req,res,next)=>{
     try {
         token = jwt.sign(
             { userId: createdNewUser.id, email: createdNewUser.email },
-            Config.SECRET_KEY,
-            { expiresIn: "1h" }
+            process.env.SECRETKEY,
+            { expiresIn: "24h" }
         );
     } catch (err) {
         const error = new HttpError("Signing up failed, please try again.", 500);

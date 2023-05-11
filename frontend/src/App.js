@@ -1,15 +1,23 @@
-import React, {useCallback, useEffect, useState} from "react";
+import React, {useCallback, useEffect, useState, Suspense} from "react";
 import {Routes, Route, useNavigate} from "react-router-dom";
 
-import MainNavigation from "./components/navigations/MainNavigation";
-import UserProfile from "./components/user/UserProfile";
 import Home from "./components/home/Home"
-import UserAuthentication from "./components/authentication/UserAuthentication";
-import About from "./components/about/About";
+// import MainNavigation from "./components/navigations/MainNavigation";
+// import UserProfile from "./components/user/UserProfile";
+// import UserAuthentication from "./components/authentication/UserAuthentication";
+// import About from "./components/about/About";
 import {AuthContext} from "./components/context/AuthContext";
 
 import './App.css';
 import PropertyDisplay from "./components/property/PropertyDisplay";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import LoadingSpinner from "./components/spinner/LoadingSpinner";
+// import {faSpinnerThird} from "@fortawesome/free-solid-svg-icons";
+// import {faSpinner}
+const About = React.lazy(() => import("./components/about/About"));
+const UserAuthentication = React.lazy(() => import("./components/authentication/UserAuthentication"));
+const UserProfile = React.lazy(()=>import("./components/user/UserProfile"));
+const MainNavigation = React.lazy(()=>import("./components/navigations/MainNavigation"));
 
 let logoutTimer;
 
@@ -20,21 +28,21 @@ function App() {
     const [userId,setUserId] = useState();
     const [userName,setUserName] = useState();
     const [tokenExpirationDate, setTokenExpirationDate] = useState();
-
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-    const [windowHeight, setWindowHeight] = useState(window.innerHeight);
-
-    useEffect(() => {
-        function handleResize() {
-            setWindowWidth(window.innerWidth);
-            setWindowHeight(window.innerHeight);
-            window.location.reload();
-        }
-
-        window.addEventListener("resize", handleResize);
-
-        return () => window.removeEventListener("resize", handleResize);
-    }, [windowWidth,windowHeight]);
+    //
+    // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    // const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+    //
+    // useEffect(() => {
+    //     function handleResize() {
+    //         setWindowWidth(window.innerWidth);
+    //         setWindowHeight(window.innerHeight);
+    //         window.location.reload();
+    //     }
+    //
+    //     window.addEventListener("resize", handleResize);
+    //
+    //     return () => window.removeEventListener("resize", handleResize);
+    // }, [windowWidth,windowHeight]);
 
 
 
@@ -44,7 +52,7 @@ function App() {
         setUserName(userName);
         setUserEmail(userEmail);
 
-        const tokenExpirationDate = expirationDate || new Date(new Date().getTime() + 1000 * 60 * 60);
+        const tokenExpirationDate = expirationDate || new Date(new Date().getTime() + 1000 * 60 * 60 * 24);
 
         setTokenExpirationDate(tokenExpirationDate);
 
@@ -122,6 +130,7 @@ function App() {
     ]
 
   return(
+      // <div className="center"><LoadingSpinner/></div>
       <AuthContext.Provider value={{
           isLoggedIn:!!token,
           userId:userId,
@@ -132,14 +141,16 @@ function App() {
           logout:logout,
       }}>
         <MainNavigation routes = {token ? routes2 : routes1}/>
-            <Routes>
-                <Route path="/profile/user/:userId" element = {<UserProfile/>}/>
-                <Route path="/property/*" element = {<PropertyDisplay/>}/>
-                <Route path="/register" element={<UserAuthentication/>}/>
-                <Route path="/aboutus" element={<About/>}/>
-                <Route path="/" element={<Home/>}/>
-            </Routes>
-      </AuthContext.Provider>
+          <Suspense fallback={<div className="center"><LoadingSpinner/></div>}>
+              <Routes>
+                    <Route path="/profile/user/:userId" element = {<UserProfile/>}/>
+                    <Route path="/property/*" element = {<PropertyDisplay/>}/>
+                    <Route path="/register" element={<UserAuthentication/>}/>
+                    <Route path="/aboutus" element={<About/>}/>
+                    <Route path="/" element={<Home/>}/>
+                </Routes>
+            </Suspense>
+       </AuthContext.Provider>
       );
 }
 

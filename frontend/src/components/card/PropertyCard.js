@@ -24,7 +24,6 @@ const PropertyCard = (props) => {
                         showBullets={true}
                         showNavs={true}
                         slideDuration="2"
-                        // class="imageslider"
                     />
                 </div>
             </div>

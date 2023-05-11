@@ -1,7 +1,6 @@
 const Property = require("../schema/propertySchema");
 const User = require("../schema/userSchema");
 const Location = require("../schema/locationSchema");
-const Config = require("../config");
 
 const mongoose = require("mongoose");
 const HttpError = require("../schema/httpError");
@@ -9,13 +8,14 @@ const fs = require("fs");
 
 
 const cloudinary = require("cloudinary").v2;
-cloudinary.config(Config.CLOUDINARY);
+cloudinary.config(process.env.CLOUDINARY);
 
 
 
 const uploadProperty = async(req,res,next) => {
 
     let data = req.body;
+    console.log(data);
     const userId = req.userData.userId;
     const property = new Property(data);
     const images = req.body.image;
@@ -57,7 +57,7 @@ const uploadProperty = async(req,res,next) => {
             ).session(session);
         }
 
-
+        property.user = user;
         await property.save({ session });
         await session.commitTransaction();
 
@@ -99,7 +99,8 @@ const searchProperty = async(req,res,next) => {
 
 const searchPropertyById = async(propertyId) => {
     try{
-        const property = await Property.findOne({_id:propertyId});
+        const property = await Property.findOne({_id:propertyId}).populate("user",{_id:1}).exec();
+        console.log(property);
         return property;
     }catch (err){
         throw new HttpError("Something Went Wrong while searching property using propertyId",500);
@@ -110,7 +111,7 @@ const searchPropertyById = async(propertyId) => {
 const getPropertyById = async(req,res,next) => {
     const propertyId = req.query.propertyId;
     try{
-        const property = await searchPropertyById(propertyId);
+        const property = (await searchPropertyById(propertyId));
         res.status(200).json({property});
     }catch (err){
         const error = new HttpError("Something Went Wrong while fetch details using propertyId",500);
@@ -139,11 +140,14 @@ const getPropertyByUserId = async(req,res,next) => {
             throw new HttpError("User Not Found",404);
         }
 
-        const properties = user.properties || [];
-        const propertyDetails = await Promise.all(
-            properties.map((property) => searchPropertyById(property._id))
-        );
-        res.status(200).json({ properties: propertyDetails });
+        if(user.properties.length!==0){
+            const properties = user.properties || [];
+            const propertyDetails = await Promise.all(
+                properties.map((property) => searchPropertyById(property._id))
+            );
+            res.status(200).json({ properties: propertyDetails,name:user.name,email:user.email,profileImage:user.profileImage});
+        }
+        res.status(200).json({properties:[],name:user.name,email:user.email,profileImage:user.profileImage});
     }catch (err){
         const error = new HttpError("Something Went Wrong while fetching user properties",500);
         next(error);

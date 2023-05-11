@@ -4,11 +4,10 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    min-height: 95vh;
 }
 .property .show_all_properties_container{
     position: relative;
-    min-height:fit-content ;
-    max-height: fit-content;
     overflow-x:auto;
     overflow-y: hidden;
 }
@@ -16,13 +15,11 @@
     display: flex;
     flex-direction: row;
     width: fit-content;
-    background-color: #14031a;
 }
 .property .show_property{
     margin-top: 1rem;
     width: 100%;
-    height: 95vh;
-    background-color: #301934;
+    height:fit-content;
 }
 
 

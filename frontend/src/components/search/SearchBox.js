@@ -9,7 +9,6 @@ import "./SearchBox.css";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSearch} from "@fortawesome/free-solid-svg-icons";
 import {toast, ToastContainer} from "react-toastify";
-import {BACKEND_PROPERTY_URL} from "../../config";
 
 
 const SearchBox = () => {
@@ -41,7 +40,7 @@ const SearchBox = () => {
                 formData.append("propertyType",propertyType);
                 formData.append("maxPrice",maxPrice);
 
-                const response = await fetch(`${BACKEND_PROPERTY_URL}/searchProperty`, {
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_PROPERTY_URL}/searchProperty`, {
                     method: "POST",
                     headers: {
                         "Authorization": `Bearer ${AuthC.token}`,
@@ -58,7 +57,7 @@ const SearchBox = () => {
                 }
             }
             else{
-                throw new Error("please select atleast 1 attribute");
+                throw new Error("Invalid search");
             }
 
 
@@ -70,9 +69,8 @@ const SearchBox = () => {
     useEffect(()=>{
         const fetchAvailableLocations = async () =>{
             try{
-                const response = await fetch(`${BACKEND_PROPERTY_URL}/getAvailableLocations`);
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_PROPERTY_URL}/getAvailableLocations`);
                 const responseData = await response.json();
-                console.log(responseData.locations);
 
                 const cityArr = [];
 
@@ -80,12 +78,9 @@ const SearchBox = () => {
                     cityArr.push({city:obj.city,arrLoca:obj.locations});
                 })
 
-                console.log(cityArr);
                 setCityOptions(cityArr);
 
-            }catch (err){
-                console.log(err);
-            }
+            }catch (err){}
         }
 
         fetchAvailableLocations();

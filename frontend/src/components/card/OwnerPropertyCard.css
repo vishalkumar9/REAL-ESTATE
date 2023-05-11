@@ -1,0 +1,13 @@
+.full-card{
+    max-width: 20rem;
+    min-height: fit-content;
+    max-height: fit-content;
+    margin: 2rem 1rem;
+    background-color: rgba(159,169,207,0.82);
+
+}
+
+.lower_half h4{
+    font-size: larger;
+    font-family: "Comic Sans MS";
+}

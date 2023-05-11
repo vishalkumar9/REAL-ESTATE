@@ -10,7 +10,6 @@ import map from "../image/map.png";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faLocationDot} from "@fortawesome/free-solid-svg-icons";
 import Map from "../map/Map.js";
-import {BACKEND_PROPERTY_URL} from "../../config";
 
 const PropertyDisplayCard = () => {
 
@@ -27,12 +26,13 @@ const PropertyDisplayCard = () => {
         const func = async() =>{
             try{
                 if(AuthC.token) {
-                    const response = await fetch(`${BACKEND_PROPERTY_URL}/getPropertyById/?propertyId=${propertyId}`, {
+                    const response = await fetch(`${process.env.REACT_APP_BACKEND_PROPERTY_URL}/getPropertyById/?propertyId=${propertyId}`, {
                         headers: {
                             "Authorization": `Bearer ${AuthC.token}`
                         },
                     });
                     const responseData = await response.json();
+                    console.log(responseData);
                     setDetails(responseData.property);
                 }
             }catch (err){
@@ -61,7 +61,8 @@ const PropertyDisplayCard = () => {
 
     const handleClick = (e) => {
         e.preventDefault();
-        history(`/profile/user/${details.user}`);
+        console.log(details);
+        history(`/profile/user/${details.user._id}`);
     }
 
     const handleMap = (e) => {

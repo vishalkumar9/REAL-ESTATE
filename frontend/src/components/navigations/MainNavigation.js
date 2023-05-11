@@ -29,6 +29,7 @@ const AuthC = useContext(AuthContext);
 
     const handleLogout = (e) => {
         e.preventDefault();
+        setIsClicked(false);
         navigate("register");
         AuthC.logout();
     }
@@ -47,7 +48,7 @@ const AuthC = useContext(AuthContext);
                             {navLinks.map((item,i)=>(
                                 <li key = {i} className={!i && "active"}>
                                     { item.content==="Logout" &&  <Link onClick = {handleLogout}>{item.content}</Link> }
-                                    { item.content!=="Logout" &&  <Link to={item.url}>{item.content}</Link> }
+                                    { item.content!=="Logout" &&  <Link to={item.url} onClick={() => setIsClicked(false)}>{item.content}</Link> }
                                 </li>
                             ))}
                         </ul>

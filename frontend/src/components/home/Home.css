@@ -1,8 +1,5 @@
 .home{
     width: 100%;
-    margin-top:5rem;
-    background-image: linear-gradient(to top , black,#301934);
-    /*height: calc(100vh - 3px);*/
     height: 100vh;
     border: 3px;
     box-sizing: border-box;
@@ -10,7 +7,6 @@
 
 .home .home_back {
     height: 100%;
-    /*background-image: url("../image/modern-luxury-authentic-dining-room-interior-design-with-picture-frame.jpg");*/
     background-image: url("../image/homebg.jpg");
     background-size: cover;
     background-position: center;

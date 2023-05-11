@@ -6,16 +6,13 @@ const HttpError = require("./schema/httpError");
 
 const mongoose = require('mongoose');
 
-const Config = require("./config");
-
 const server = express();
-
 
 
 const userRoutes = require("./routes/userRoutes");
 const propertyRoutes = require("./routes/propertyRoutes");
 const formDataParser = require("./middleware/parseData");
-const {MONGODB_CONNECT_URL} = require("./config");
+
 
 
 server.use(formDataParser);
@@ -44,7 +41,7 @@ server.use((error,req,res,next)=>{
     res.json({message : error.message || "Unknown error occur"});
 })
 
-mongoose.connect(Config.MONGODB_CONNECT_URL,
+mongoose.connect(`mongodb+srv://${process.env.MONGOUSERNAME}:${process.env.MONGOPASSWORD}@local.myy6ou9.mongodb.net/realEstate?retryWrites=true&w=majority`,
     { useNewUrlParser: true, useUnifiedTopology: true }).then(()=>{
         server.listen(5000);
         console.log("connect to database");

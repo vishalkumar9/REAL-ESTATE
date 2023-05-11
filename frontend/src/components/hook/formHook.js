@@ -1,5 +1,4 @@
 import React, {useContext, useEffect, useState} from "react";
-import {BACKEND_PROPERTY_URL} from "../../config";
 import {AuthContext} from "../context/AuthContext";
 import {toast} from "react-toastify";
 export const useForm = () => {
@@ -54,38 +53,39 @@ export const useForm = () => {
     },[propertyData.type])
 
     useEffect(()=>{
-        if(propertyData.propertyType!==""){
-            if(propertyData.purposeType!==""){
-                if(propertyData.type!==""){
-                    if(propertyData.houseNo!==""&&propertyData.pinCode!==""&&propertyData.district!==""&&propertyData.location!==""){
-                        if(propertyData.type==="plot" || propertyData.type==="Agricultural Land"){
-                            if(propertyData.purposeType==="Sell" && propertyData.Price==""){
-                                setError(null);
-                            }
-                            if(propertyData.purposeType!=="Sell" && propertyData.price!==""){
-                                setError(null);
-                            }
-                        }
-                        else if(propertyData.propertyType==="Commercial"){
-                            if(propertyData.purposeType==="Sell" && propertyData.price!==""){
-                                setError(null);
-                            }
-                            if(propertyData.purposeType!=="Sell" && propertyData.price!==""){
-                                setError(null);
-                            }
-                        }
-                        else {
-                            if(propertyData.bhk!=="" && propertyData.countOfBathroom!==""
-                                &&propertyData.constructionStatus!==""&&propertyData.furnishType!=="" &&
-                                propertyData.builtUpArea!==""){
-                                if(propertyData.purposeType==="Sell" && propertyData.price!==""){
-                                    setError(null);
-                                }
-                                if(propertyData.purposeType!=="Sell" && propertyData.price!==""){
-                                    setError(null);
-                                }
-                            }
-                        }
+        if (
+            propertyData.propertyType !== "" &&
+            propertyData.purposeType !== "" &&
+            propertyData.type !== "" &&
+            propertyData.houseNo !== "" &&
+            propertyData.pinCode !== "" &&
+            propertyData.district !== "" &&
+            propertyData.location !== ""
+        ) {
+            if (propertyData.type === "plot" || propertyData.type === "Agricultural Land") {
+                if (propertyData.purposeType === "Sell" && propertyData.Price !== "") {
+                    setError(null);
+                } else if (propertyData.purposeType !== "Sell" && propertyData.price !== "") {
+                    setError(null);
+                }
+            } else if (propertyData.propertyType === "Commercial") {
+                if (propertyData.purposeType === "Sell" && propertyData.price !== "") {
+                    setError(null);
+                } else if (propertyData.purposeType !== "Sell" && propertyData.price !== "") {
+                    setError(null);
+                }
+            } else {
+                if (
+                    propertyData.bhk !== "" &&
+                    propertyData.countOfBathroom !== "" &&
+                    propertyData.constructionStatus !== "" &&
+                    propertyData.furnishType !== "" &&
+                    propertyData.builtUpArea !== ""
+                ) {
+                    if (propertyData.purposeType === "Sell" && propertyData.price !== "") {
+                        setError(null);
+                    } else if (propertyData.purposeType !== "Sell" && propertyData.price !== "") {
+                        setError(null);
                     }
                 }
             }
@@ -123,14 +123,13 @@ export const useForm = () => {
                 formData.append('image', allImage[i]);
             }
 
-            const response = await fetch(`${BACKEND_PROPERTY_URL}/uploadProperty`, {
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_PROPERTY_URL}/uploadProperty`, {
                 method: "POST",
                 headers: {
                     "Authorization": `Bearer ${AuthC.token}`,
                 },
                 body:formData,
             });
-            console.log(response);
             if(response.ok){
                 toast.success("Property Uploaded",{autoClose:2000});
             }

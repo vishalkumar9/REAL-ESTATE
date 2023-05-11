@@ -1,5 +1,4 @@
-import React, {useContext, useState} from "react";
-import {AuthContext} from "../context/AuthContext";
+import React, {useContext, useEffect, useState} from "react";
 import {Route, Routes, useNavigate} from "react-router-dom";
 
 import PropertyCard from "../card/PropertyCard";
@@ -12,11 +11,15 @@ const PropertyDisplay = () => {
     const searchProperty = JSON.parse(localStorage.getItem("searchProperty"));
 
     const properties = searchProperty.properties;
-    const [details,setDetails] = useState();
+    const [details,setDetails] = useState(null);
     const handelModal = (details) => {
         setDetails(details);
         history(`${details._id}`);
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return(
         <div className="property">
@@ -27,12 +30,13 @@ const PropertyDisplay = () => {
                     ))}
                 </div>
             </div>
-            <div className="show_property">
-                <Routes>
-                    <Route path="/:propertyId" element={<PropertyDisplayCard details={details}/>}/>
-                </Routes>
-
-            </div>
+            {details !== null &&
+                <div className="show_property">
+                    <Routes>
+                        <Route path="/:propertyId" element={<PropertyDisplayCard details={details}/>}/>
+                    </Routes>
+                </div>
+            }
         </div>
     );
 }

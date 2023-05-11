@@ -33,13 +33,13 @@ const propertySchema = new Schema({
     bhk: {
         type: String,
         required: function (){
-            return this.purposeType === "Residential";
+            return this.propertyType === "Residential";
         }
     },
     countOfBathroom: {
         type: String,
         required: function (){
-            return this.type!=="Plot" && this.type!=="Agricultural Land";
+            return this.type!=="Plot" && this.type!=="Agricultural Land" && this.propertyType!=="Commercial";
         }
     },
     builtUpArea: {
@@ -62,7 +62,7 @@ const propertySchema = new Schema({
     furnishType: {
         type: String,
         required: function (){
-            return this.type!=="Plot" && this.type!=="Agricultural Land";
+            return this.type!=="Plot" && this.type!=="Agricultural Land" && this.propertyType!=="Commercial";
         }
     },
     pgFor: {

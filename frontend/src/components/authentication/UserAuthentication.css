@@ -1,10 +1,18 @@
+.upperdiv{
+    background-image: url("../image/13294659_5199419.jpg");
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    overflow-y: hidden;
+}
 .userAuth-div{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    background-color: rgb(24,24,24);
+    padding: 200px 10px;
 }
 .userAuth-div .userAuth-mode-div button{;
     font-size: medium;
@@ -12,7 +20,7 @@
     height: 50px;
     border-radius: 5px;
     border-width: 0;
-    background-color: #283239;
+    background-color: rgba(211, 129, 79, 0.98);
     transition: 0.3s ease-in-out;
     margin: 0.5rem;
     color: aliceblue;
@@ -20,7 +28,7 @@
 
 .userAuth-div .userAuth-mode-div button:hover{
     color: black;
-    background-color: #17cf97;
+    background-color: rgba(207, 23, 158, 0.87);
 }
 
 .userAuth-div .userAuth-main-div{
@@ -29,8 +37,8 @@
     border: 1px solid;
     padding: 5px 5px;
     border-radius: 1rem;
-    border-color: #F4C430;
-    box-shadow: -5px -5px #F4C430;
+    border-color: #c037a9;
+    box-shadow: -5px -5px #c037a9;
 }
 .userAuth-div .userAuth-main-div .userAuth-input-div{
     width: 100%;
@@ -44,7 +52,7 @@
 .userAuth-div .userAuth-main-div .userAuth-input-div h1{
     /*margin-top: 5rem;*/
     margin-bottom: 30px;
-    color: #F4C430;
+    color: #c037a9;
 }
 
 .userAuth-div .userAuth-main-div .userAuth-input-div label{
@@ -62,7 +70,14 @@
     border-radius: 5px;
     border-width: 0;
     padding: 20px;
-    outline-color: #F4C430;
+    outline-color: rgba(207, 23, 158, 0.87);
+}
+.userAuth-div .userAuth-main-div .userAuth-input-div .image_select{
+    background-color: aliceblue;
+}
+.userAuth-div .userAuth-main-div .userAuth-input-div #user_profile_image{
+    height: 100px;
+    width: 100px;
 }
 
 .userAuth-div .userAuth-main-div .userAuth-input-div button{
@@ -72,11 +87,11 @@
     height: 50px;
     border-radius: 5px;
     border-width: 0;
-    background-color: #17cf97;
+    background-color: rgba(207, 23, 158, 0.87);
     transition: 0.3s ease-in-out;
 }
 
 .userAuth-div .userAuth-main-div .userAuth-input-div button:hover{
     color: aliceblue;
-    background-color: #F4C430;
+    background-color: rgba(211, 129, 79, 0.98);
 }

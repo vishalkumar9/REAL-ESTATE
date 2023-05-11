@@ -4,12 +4,9 @@ import ServiceCard from "../card/ServiceCard";
 
 import './About.css';
 
-import website from "../image/website.png";
 import im1 from "../image/im1.png";
 import im2 from "../image/im2.png";
 import im3 from "../image/im3.png";
-import vishal from "../image/vishal.jpg";
-import garvit from "../image/garvit.jpg";
 
 
 const About = () => {
@@ -23,9 +20,9 @@ const About = () => {
                         to excellence, we brought together our diverse backgrounds and skillsets to make this vision a reality.
                         Today, we are proud to offer a unique and valuable resource to our clients, one that is the result of the hard work and dedication of our team."</h3>
                 </div>
-                <div className="div1_image">
-                    <img src={website} alt=""/>
-                </div>
+                {/*<div className="div1_image">*/}
+                {/*    <img src={website} alt=""/>*/}
+                {/*</div>*/}
             </div>
             <div className="services">
                 <div className="heading" >
@@ -37,15 +34,15 @@ const About = () => {
                     <ServiceCard image = {im3} heading = "Listing" content="Get the exposure you need to sell your property with our free listing service. Our platform makes it easy to list your property and get it in front of qualified buyers"/>
                 </div>
             </div>
-            <div className="intro">
-                <div className="heading" >
-                    <h1>Meet Our Devlopers</h1>
-                </div>
-                <div className="display_dev">
-                    <img className="dev" src={vishal} alt=""/>
-                    <h3>Full Stack Devloper</h3>
-                </div>
-            </div>
+            {/*<div className="intro">*/}
+            {/*    <div className="heading" >*/}
+            {/*        <h1>Meet Our Devlopers</h1>*/}
+            {/*    </div>*/}
+            {/*    /!*<div className="display_dev">*!/*/}
+            {/*    /!*    <img className="dev" src={vishal} alt=""/>*!/*/}
+            {/*    /!*    <h3>Full Stack Devloper</h3>*!/*/}
+            {/*    /!*</div>*!/*/}
+            {/*</div>*/}
         </div>
     );
 }
