@@ -43,7 +43,7 @@ server.use((error,req,res,next)=>{
 
 mongoose.connect(`mongodb+srv://${process.env.MONGOUSERNAME}:${process.env.MONGOPASSWORD}@local.myy6ou9.mongodb.net/realEstate?retryWrites=true&w=majority`,
     { useNewUrlParser: true, useUnifiedTopology: true }).then(()=>{
-        server.listen(5000);
+        server.listen(process.env.PORT||5000);
         console.log("connect to database");
 }).catch((error)=>{
     console.log(error);
