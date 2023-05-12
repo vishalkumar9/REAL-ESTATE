@@ -5,7 +5,11 @@ const jwt = require("jsonwebtoken");
 
 
 const cloudinary = require("cloudinary").v2;
-cloudinary.config(process.env.CLOUDINARY);
+cloudinary.config({
+    cloud_name:process.env.CLOUDNAME,
+    api_key:process.env.APIKEY,
+    api_secret:process.env.APISECRET,
+});
 
 
 const userLogin = async(req,res,next)=>{
