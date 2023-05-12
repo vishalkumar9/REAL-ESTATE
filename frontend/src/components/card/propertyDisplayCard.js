@@ -20,7 +20,6 @@ const PropertyDisplayCard = () => {
     const {propertyId} = useParams();
 
     const history = useNavigate();
-    console.log(details);
 
     useEffect( ()=>{
         const func = async() =>{
@@ -32,7 +31,6 @@ const PropertyDisplayCard = () => {
                         },
                     });
                     const responseData = await response.json();
-                    console.log(responseData);
                     setDetails(responseData.property);
                 }
             }catch (err){
@@ -61,7 +59,6 @@ const PropertyDisplayCard = () => {
 
     const handleClick = (e) => {
         e.preventDefault();
-        console.log(details);
         history(`/profile/user/${details.user._id}`);
     }
 

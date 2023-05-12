@@ -102,7 +102,6 @@ const userSignup = async (req,res,next)=>{
     try {
         const uploader = async (path) => await cloudinary.uploader.upload(path);
         const newPath = await uploader(image.filepath);
-        console.log(newPath);
         createdNewUser.profileImage = newPath.url;
         public_Id = newPath.public_id;
         await createdNewUser.save();

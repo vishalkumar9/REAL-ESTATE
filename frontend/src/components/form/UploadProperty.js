@@ -1,6 +1,6 @@
 import React  from "react";
 
-import {useForm} from "../hook/FormHook";
+import {useForm} from "../hook/formHook";
 
 import "./UploadProperty.css";
 

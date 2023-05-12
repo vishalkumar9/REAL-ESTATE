@@ -40,7 +40,6 @@ const UserAuthentication = () => {
 
                 navigate("/");
             }catch (err){
-                console.log(err);
                 toast.error("Login Failed",{autoClose:1000});
             }
         }else{

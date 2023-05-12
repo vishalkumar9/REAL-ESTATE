@@ -66,7 +66,6 @@ function App() {
                 expiration: tokenExpirationDate.toISOString(),
             })
         )
-        console.log(token);
     },[]);
 
     const logout = useCallback(() => {
