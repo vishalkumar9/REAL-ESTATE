@@ -10,5 +10,6 @@
 > `REACT_APP_BACKEND_PROPERTY_URL=`
 > `REACT_APP_BACKEND_USER_URL=`
 > `REACT_APP_BING_MAP_API=`
+> 4. now go to terminal ans type npm start
 
 
