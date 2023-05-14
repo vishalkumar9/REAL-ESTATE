@@ -10,6 +10,8 @@
 > `REACT_APP_BACKEND_PROPERTY_URL=`
 > `REACT_APP_BACKEND_USER_URL=`
 > `REACT_APP_BING_MAP_API=`
+> BACKEND_USER_URL - API ENDPOINT TO INTERACT WITH USER RELATED REQUEST SUCH AS LOGIN SIGNUP
+> BACKEND_PROPERTY_URL - API ENDPOINT TO INTERACT WITH PROPERTY RELATED REQUEST SUCH AS UPLOADING PROPERTY, SEARCHING ETC.
 4. now go to terminal ans type npm start
 
 
@@ -18,3 +20,7 @@
 2. go to terminal and write npm install
 3. create nodemon.json and set this variable
 >  `{ "env":{"MONGOUSERNAME":"","MONGOPASSWORD":"","SECRETKEY":"","CLOUDNAME":"","APIKEY":"","APISECRET":""}}`
+> here the CLOUDNAME, APIKEY, APISECERET will get from cloudinary, I am using cloudinary for storing images
+
+* Database
+1. MongoDB used as a Database
