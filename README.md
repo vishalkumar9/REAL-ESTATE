@@ -17,4 +17,4 @@
 1. go to backend folder
 2. go to terminal and write npm install
 3. create nodemon.json and set this variable
->  { "env":{"MONGOUSERNAME":"","MONGOPASSWORD":"","SECRETKEY":"","CLOUDNAME":"","APIKEY":"","APISECRET":""}}
+>  `{ "env":{"MONGOUSERNAME":"","MONGOPASSWORD":"","SECRETKEY":"","CLOUDNAME":"","APIKEY":"","APISECRET":""}}`
