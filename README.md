@@ -23,7 +23,7 @@
 3. create nodemon.json and set this variable
 >  `{ "env":{"MONGOUSERNAME":"","MONGOPASSWORD":"","SECRETKEY":"","CLOUDNAME":"","APIKEY":"","APISECRET":""}}`
 * here the CLOUDNAME, APIKEY, APISECERET will get from cloudinary, I am using cloudinary for storing images
-
+4. now go to terminal and type npm run dev
 ## Database
 ---
 1. MongoDB used as a Database
