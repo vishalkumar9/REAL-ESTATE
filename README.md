@@ -24,5 +24,6 @@
 >  `{ "env":{"MONGOUSERNAME":"","MONGOPASSWORD":"","SECRETKEY":"","CLOUDNAME":"","APIKEY":"","APISECRET":""}}`
 * here the CLOUDNAME, APIKEY, APISECERET will get from cloudinary, I am using cloudinary for storing images
 
-* Database
+## Database
+---
 1. MongoDB used as a Database
