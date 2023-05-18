@@ -16,7 +16,6 @@ import houseImg1 from "../image/houseImg1.jpg";
 import houseImg2 from "../image/houseImg2.webp";
 import houseImg3 from "../image/houseImg3.jpg";
 
-
 const UserProfile = () =>{
 
     const AuthC = useContext(AuthContext);

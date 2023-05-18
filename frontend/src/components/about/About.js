@@ -1,6 +1,6 @@
 import React from "react";
 
-import ServiceCard from "../card/ServiceCard";
+import FeatureCard from "../card/FeatureCard";
 
 import './About.css';
 
@@ -29,9 +29,9 @@ const About = () => {
                     <h1>Services We Provide</h1>
                 </div>
                 <div className="display_services">
-                    <ServiceCard image = {im1} heading = "Rent" content="Find your ideal rental property with our extensive selection of homes, apartment and many more."/>
-                    <ServiceCard image = {im2} heading = "Sell" content="Find your dream home at a dream price with our exclusive selection of sale listings. Our team is dedicated to helping you find the best deal possible."/>
-                    <ServiceCard image = {im3} heading = "Listing" content="Get the exposure you need to sell your property with our free listing service. Our platform makes it easy to list your property and get it in front of qualified buyers"/>
+                    <FeatureCard image = {im1} heading = "Rent" content="Find your ideal rental property with our extensive selection of homes, apartment and many more."/>
+                    <FeatureCard image = {im2} heading = "Sell" content="Find your dream home at a dream price with our exclusive selection of sale listings. Our team is dedicated to helping you find the best deal possible."/>
+                    <FeatureCard image = {im3} heading = "Listing" content="Get the exposure you need to sell your property with our free listing service. Our platform makes it easy to list your property and get it in front of qualified buyers"/>
                 </div>
             </div>
             {/*<div className="intro">*/}
