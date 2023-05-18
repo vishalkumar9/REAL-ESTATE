@@ -8,69 +8,51 @@
     background-repeat: no-repeat;
     overflow: auto;
 }
-.aboutus .div1 {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 2rem;
-}
-
-.aboutus .div1 .text{
-    font-size: x-large;
-    color: rgba(247, 240, 255, 0.79);
-    padding: 10px 10px;
-}
-
-.aboutus .div1 .div1_image img{
-    width: 100%;
-    max-width: 100vw;
-    height: auto;
-    object-fit: cover;
-    padding:10px 10px;
-}
-
-.aboutus .services{
-  display: flex;
-  flex-direction: column;
-}
 
 .aboutus .heading{
-    text-align: center;
-    color: rgba(247, 240, 255, 0.79);;
-    font-size: xx-large;
-    font-family:cursive;
+    height: 10vh;
+    margin-top: 2rem;
+    color: aliceblue;
+    font-size: x-large;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
-.aboutus .services .display_services{
-    align-items: center;
+.aboutus .main_aboutus{
+    width: 60vw;
+    margin: 3rem auto;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    font-size: x-large;
+    color: aliceblue;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.aboutus .main_aboutus .heading1{
+    padding: 2rem;
+}
+.aboutus .main_aboutus p{
+    padding: 0 1rem;
+}
+
+.aboutus .Founders{
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.aboutus .Founders .container{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.aboutus .intro .display_dev{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 4rem 4rem;
-}
-
-.aboutus .dev{
-    margin: 2rem 4rem;
-    width: 10rem;
-    height: 10rem;
-    border-bottom-right-radius: 3rem;
-    border-top-right-radius: 3rem;
-    border-bottom-left-radius: 3rem;
-}
-.aboutus .intro .display_dev h3{
-    position: relative;
-    margin-top: 13rem;
-    margin-left: -14rem;
-    font-size: x-large;
-    color: rgba(247, 240, 255, 0.79)
-
+@media (max-width: 500px) {
+    .aboutus .main_aboutus{
+        width: 100vw;
+    }
 }
