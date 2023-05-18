@@ -18,7 +18,7 @@ const About = React.lazy(() => import("./components/about/About"));
 const UserAuthentication = React.lazy(() => import("./components/authentication/UserAuthentication"));
 const UserProfile = React.lazy(()=>import("./components/user/UserProfile"));
 const MainNavigation = React.lazy(()=>import("./components/navigations/MainNavigation"));
-
+const Service = React.lazy(()=>import("./components/service/Service"));
 let logoutTimer;
 
 function App() {
@@ -120,6 +120,10 @@ function App() {
             url : "/aboutus"
         },
         {
+            content: "Service",
+            url : "/service"
+        },
+        {
             content: "Profile",
             url:"/profile/user/"+userId,
         },
@@ -146,6 +150,7 @@ function App() {
                     <Route path="/property/*" element = {<PropertyDisplay/>}/>
                     <Route path="/register" element={<UserAuthentication/>}/>
                     <Route path="/aboutus" element={<About/>}/>
+                    <Route path="/service" element={<Service/>}/>
                     <Route path="/" element={<Home/>}/>
                 </Routes>
             </Suspense>

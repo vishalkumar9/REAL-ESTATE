@@ -1,0 +1,28 @@
+.service_container{
+    width: 100%;
+    min-height: 95vh;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+    background-image: linear-gradient(to top , black,#301934);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: auto;
+}
+
+.service_container .services_display{
+    padding: 2rem 2rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.service_container .serviceForm_container{
+    width: 100%;
+    /*padding: 1rem 2rem;*/
+}
+
