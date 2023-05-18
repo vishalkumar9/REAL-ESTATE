@@ -1,0 +1,35 @@
+.profile-container {
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    width: 20rem;
+    margin: 1rem 2rem;
+    background-color: rgba(240, 248, 255, 0.53);
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 10px auto;
+}
+
+.profile-name {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.profile-designation {
+    font-size: 18px;
+    color: #999;
+    margin-bottom: 20px;
+}
+
+.profile-about {
+    margin-bottom: 20px;
+}
+
+.profile-social-icons {
+    display: flex;
+    justify-content: center;
+    margin: 2rem auto;
+}
