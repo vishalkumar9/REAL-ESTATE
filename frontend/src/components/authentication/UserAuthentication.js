@@ -115,8 +115,8 @@ const UserAuthentication = () => {
                     </div>
                 </div>
                 <div className="userAuth-mode-div">
-                    {mode && <button onClick = {handleModeChangeClick} >Sing Up</button>}
-                    {!mode && <button onClick = {handleModeChangeClick}>Log In</button>}
+                    {mode && <button className="signUp" onClick = {handleModeChangeClick} >Sing Up</button>}
+                    {!mode && <button className="logIn" onClick = {handleModeChangeClick}>Log In</button>}
                 </div>
             </div>
         </div>

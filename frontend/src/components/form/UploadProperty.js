@@ -9,8 +9,8 @@ const UploadProperty =   () => {
     const {propertyData, error, displayImages, handleChange, handleFileChange, uploadProperty } = useForm();
     
     const arrPropertyType = ["Residential","Commercial"];
-    const arrPurpose = ["Rent","Sell","PG/Co-Living"];
-    const arrResidentialType = ["Flat","Plot","Villa","House","Apartment","Agricultural Land"];
+    const arrPurpose = ["Rent","Sell"];
+    const arrResidentialType = ["Flat","Plot","House","Apartment"];
     const arrCommercialType = ["Office","Retail Shop","Showroom","Warehouse"];
     const arrFurnishType = ["Fully Furnished", "Semi Furnished", "Unfurnished"];
     const arrBhk = ["1","2","3","4","5", "6","7"];
@@ -38,7 +38,7 @@ const UploadProperty =   () => {
                         {arrPurpose.map(value => (
                             (propertyData.propertyType==="" || propertyData.propertyType==="Residential" ?
                                 <button name = "purposeType" value = {value} className = {value===propertyData.purposeType ? "active" : ""} onClick={handleChange}>{value}</button> :
-                                propertyData.propertyType==="Commercial" && value!=="PG/Co-Living" && <button name = "purposeType" value = {value} className = {value===propertyData.purposeType ? "active" : ""} onClick={handleChange}>{value}</button>)
+                                propertyData.propertyType==="Commercial" && <button name = "purposeType" value = {value} className = {value===propertyData.purposeType ? "active" : ""} onClick={handleChange}>{value}</button>)
                         ))}
                     </div>
                 </div>
@@ -48,14 +48,14 @@ const UploadProperty =   () => {
                     <div className="option">
                         { propertyData.propertyType === "Residential" ? arrResidentialType.map(value => (
                             (propertyData.purposeType==="" || propertyData.purposeType==="Rent" || propertyData.purposeType==="Sell") ? <button name = "type" value = {value} className = {value===propertyData.type ? "active" : ""} onClick={handleChange}>{value}</button>
-                                :propertyData.purposeType==="PG/Co-Living" && value !== "Agricultural Land" && value!=="Plot" && <button name = "type" value = {value} className = {value===propertyData.type ? "active" : ""} onClick={handleChange}>{value}</button>
+                                : value!=="Plot" && <button name = "type" value = {value} className = {value===propertyData.type ? "active" : ""} onClick={handleChange}>{value}</button>
                         )) : arrCommercialType.map(value => (
                             <button name="type" value = {value} className = {value===propertyData.type ? "active" : ""} onClick={handleChange}>{value}</button>
                         ))}
                         }
                     </div>
                 </div>
-                {propertyData.propertyType === "Residential" && propertyData.type!=="Plot" && propertyData.type!=="Agricultural Land" && <div className="form_input_div">
+                {propertyData.propertyType === "Residential" && propertyData.type!=="Plot" && <div className="form_input_div">
                     <span style={{color:"red", fontSize:"large"}}>*</span>
                     <label>BHK </label>
                     <div className="option">
@@ -65,7 +65,7 @@ const UploadProperty =   () => {
                     </div>
                 </div>
                 }
-                {propertyData.propertyType==="Residential" && propertyData.type!=="Plot" && propertyData.type!=="Agricultural Land" && <div className="form_input_div">
+                {propertyData.propertyType==="Residential" && propertyData.type!=="Plot" && <div className="form_input_div">
                     <span style={{color:"red", fontSize:"large"}}>*</span>
                     <label>Bathroom </label>
                     <div className="option">
@@ -74,7 +74,7 @@ const UploadProperty =   () => {
                         ))}
                     </div>
                 </div>}
-                {propertyData.type!=="Plot" && propertyData.type!=="Agricultural Land" && <div className="form_input_div">
+                {propertyData.type!=="Plot" && <div className="form_input_div">
                     <span style={{color:"red", fontSize:"large"}}>*</span>
                     <label>Construction Status </label>
                     <div className="option">
@@ -121,7 +121,7 @@ const UploadProperty =   () => {
                     </div>
                 </div>
                 }
-                {propertyData.type!=="Plot" && propertyData.type!=="Agricultural Land"  && <div className="form_input_div">
+                {propertyData.type!=="Plot" && <div className="form_input_div">
                     <label>Age Of Property (year) </label>
                     <div className="option">
                         <input type="text" name="ageOfProperty" value = {propertyData.ageOfProperty} onChange={handleChange}/>
@@ -138,27 +138,27 @@ const UploadProperty =   () => {
                     </div>
                 </div>
                 }
-                {propertyData.purposeType==="PG/Co-Living" && <div className="form_input_div">
-                    <span style={{color:"red", fontSize:"large"}}>*</span>
-                    <label>PG is For</label>
-                    <div className="option">
-                        { arrPgFor.map(value => (
-                            <button name="pgFor" value = {value} className = {value===propertyData.pgFor ? "active" : ""} onClick={handleChange}>{value}</button>
-                        ))}
-                    </div>
-                </div>
+                {/*{propertyData.purposeType==="PG/Co-Living" && <div className="form_input_div">*/}
+                {/*    <span style={{color:"red", fontSize:"large"}}>*</span>*/}
+                {/*    <label>PG is For</label>*/}
+                {/*    <div className="option">*/}
+                {/*        { arrPgFor.map(value => (*/}
+                {/*            <button name="pgFor" value = {value} className = {value===propertyData.pgFor ? "active" : ""} onClick={handleChange}>{value}</button>*/}
+                {/*        ))}*/}
+                {/*    </div>*/}
+                {/*</div>*/}
                 }
-                {propertyData.purposeType === "PG/Co-Living" && <div className="form_input_div">
-                    <label>Best Suited For</label>
-                    <div className="option">
-                        {arrSuitedFor.map(value => (
-                            <button name="suitedFor" value={value}
-                                    className={value === propertyData.suitedFor ? "active" : ""}
-                                    onClick={handleChange}>{value}</button>
-                        ))}
-                    </div>
-                </div>
-                }
+                {/*{propertyData.purposeType === "PG/Co-Living" && <div className="form_input_div">*/}
+                {/*    <label>Best Suited For</label>*/}
+                {/*    <div className="option">*/}
+                {/*        {arrSuitedFor.map(value => (*/}
+                {/*            <button name="suitedFor" value={value}*/}
+                {/*                    className={value === propertyData.suitedFor ? "active" : ""}*/}
+                {/*                    onClick={handleChange}>{value}</button>*/}
+                {/*        ))}*/}
+                {/*    </div>*/}
+                {/*</div>*/}
+                {/*}*/}
                 <h2>Address</h2>
                 <div className="form_input_div">
                     <span style={{color:"red", fontSize:"large"}}>*</span>

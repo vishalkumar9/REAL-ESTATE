@@ -16,7 +16,7 @@ const SearchBox = () => {
     const AuthC = useContext(AuthContext);
 
     const typeOptions = ["Rent","Sell"];
-    const propertyOptions = ["Flat","Apartment","Pg"];
+    const propertyOptions = ["Flat","Apartment","plot","house","office","Retail Shop","Showroom","Warehouse"];
     const priceRangeOptions = ["5000","10000","15000","25000","50000","100000"];
 
     const [locationOptions,setLocationOption] = useState([]);
@@ -53,7 +53,7 @@ const SearchBox = () => {
                     localStorage.setItem("searchProperty", JSON.stringify({
                         properties:responseData.properties,
                     }));
-                    history("/property")
+                    history("/property");
                 }
             }
             else{

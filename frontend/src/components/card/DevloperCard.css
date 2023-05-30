@@ -4,6 +4,8 @@
     width: 20rem;
     margin: 1rem 2rem;
     background-color: rgba(240, 248, 255, 0.53);
+    max-height: 70vh;
+    min-height: fit-content;
 }
 
 .profile-image {

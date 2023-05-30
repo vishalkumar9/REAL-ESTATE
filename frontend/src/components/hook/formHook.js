@@ -22,7 +22,6 @@ export const useForm = () => {
         length:"",
         width:"",
         furnishType:"",
-        pgFor:"",
         suitedFor:"",
         district:"",
         location:"",
@@ -42,7 +41,7 @@ export const useForm = () => {
 
     useEffect(() => {
         setPropertyData(propertyData => ({
-            ...propertyData,bhk:"",pgFor:"",suitedFor:"",type: "",countOfBathroom:"",countOfBalcony:"",countOfParking:""
+            ...propertyData,bhk:"",suitedFor:"",type: "",countOfBathroom:"",countOfBalcony:"",countOfParking:""
         }));
     },[propertyData.purposeType])
 
@@ -62,7 +61,7 @@ export const useForm = () => {
             propertyData.district !== "" &&
             propertyData.location !== ""
         ) {
-            if (propertyData.type === "plot" || propertyData.type === "Agricultural Land") {
+            if (propertyData.type === "plot") {
                 if (propertyData.purposeType === "Sell" && propertyData.Price !== "") {
                     setError(null);
                 } else if (propertyData.purposeType !== "Sell" && propertyData.price !== "") {
@@ -111,7 +110,6 @@ export const useForm = () => {
             formData.append("length",propertyData.length);
             formData.append("width",propertyData.width);
             formData.append("furnishType",propertyData.furnishType);
-            formData.append("pgFor",propertyData.pgFor);
             formData.append("suitedFor",propertyData.suitedFor);
             formData.append("city",propertyData.district);
             formData.append("location",propertyData.location);

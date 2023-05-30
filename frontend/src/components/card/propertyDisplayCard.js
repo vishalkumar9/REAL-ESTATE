@@ -118,13 +118,9 @@ const PropertyDisplayCard = () => {
                 }
             </div>
         );
+    }else{
+        return <div></div>
     }
-    return (
-        <div>
-            <h1>Somthing Went Wrong</h1>
-        </div>
-    )
-
 };
 
 export default PropertyDisplayCard;

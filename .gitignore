@@ -2,3 +2,6 @@
 frontend/.env
 frontend/.env.production
 backend/nodemon.json
+frontend/.firebase/
+frontend/.firebaserc
+frontend/firebase.json

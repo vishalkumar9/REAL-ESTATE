@@ -23,7 +23,7 @@ const propertySchema = new Schema({
     constructionStatus: {
         type: String,
         required: function (){
-            return this.type!=="Plot" && this.type!=="Agricultural Land";
+            return this.type!=="Plot";
         }
     },
     ageOfProperty: {
@@ -39,7 +39,7 @@ const propertySchema = new Schema({
     countOfBathroom: {
         type: String,
         required: function (){
-            return this.type!=="Plot" && this.type!=="Agricultural Land" && this.propertyType!=="Commercial";
+            return this.type!=="Plot" && this.propertyType!=="Commercial";
         }
     },
     builtUpArea: {
@@ -62,19 +62,7 @@ const propertySchema = new Schema({
     furnishType: {
         type: String,
         required: function (){
-            return this.type!=="Plot" && this.type!=="Agricultural Land" && this.propertyType!=="Commercial";
-        }
-    },
-    pgFor: {
-        type: String,
-        required: function (){
-            return this.purposeType === "PG/Co-Living";
-        }
-    },
-    suitedFor: {
-        type: String,
-        required: function (){
-            return this.purposeType === "PG/Co-Living";
+            return this.type!=="Plot" && this.propertyType!=="Commercial";
         }
     },
     city:{

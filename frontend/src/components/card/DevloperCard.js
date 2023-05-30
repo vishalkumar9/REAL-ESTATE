@@ -12,9 +12,6 @@ const DevloperCard = (props) => {
             <div className="profile-about">
                 <p>{props.description}</p>
             </div>
-            {/*<div className="profile-social-icons">*/}
-            {/*    <a href={props.url} target="_blank"><FontAwesomeIcon icon={faLinkedin}/></a>*/}
-            {/*</div>*/}
         </div>
     );
 }
