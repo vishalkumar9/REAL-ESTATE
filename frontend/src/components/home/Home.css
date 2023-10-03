@@ -8,9 +8,7 @@
 
 .home .home_back {
     height: 100%;
-    /*background-image: url("../image/homebg.jpg");*/
-    background-image: linear-gradient(to top , black,#301934);
-    /*background-color: #2D033B;*/
+    background-image: url("../image/homebg.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
