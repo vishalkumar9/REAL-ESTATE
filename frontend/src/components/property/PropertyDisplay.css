@@ -29,7 +29,8 @@
 }
 
 .property .show_all_properties_container::-webkit-scrollbar-thumb {
-    background-color: rgba(42, 1, 63, 0.9);
+    /*background-color: rgba(42, 1, 63, 0.9);*/
+    background-image: linear-gradient(to top , black,#301934);
     border-radius: 3px;
 }
 

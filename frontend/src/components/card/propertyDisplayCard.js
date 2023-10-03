@@ -13,6 +13,8 @@ import Map from "../map/Map.js";
 
 const PropertyDisplayCard = () => {
 
+
+
     const AuthC  = useContext(AuthContext);
 
     const [details,setDetails] = useState(null);

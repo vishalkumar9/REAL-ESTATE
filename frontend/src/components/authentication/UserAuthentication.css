@@ -1,5 +1,7 @@
 .upperdiv{
-    background-image: url("../image/13294659_5199419.jpg");
+    /*background-image: url("../image/13294659_5199419.jpg");*/
+    background-image: linear-gradient(to top , black,#301934);
+    /*background-color: #2D033B;*/
     min-height: 100vh;
     background-size: cover;
     background-position: center;

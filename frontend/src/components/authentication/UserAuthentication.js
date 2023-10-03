@@ -53,6 +53,8 @@ const UserAuthentication = () => {
                     formData.append('image', file);
                 }
 
+                console.log(formData);
+
                 const response = await fetch(`${process.env.REACT_APP_BACKEND_USER_URL}/signup`,{
                     method: "POST",
                     body:formData,

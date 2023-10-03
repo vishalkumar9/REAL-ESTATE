@@ -8,7 +8,9 @@
 
 .home .home_back {
     height: 100%;
-    background-image: url("../image/homebg.jpg");
+    /*background-image: url("../image/homebg.jpg");*/
+    background-image: linear-gradient(to top , black,#301934);
+    /*background-color: #2D033B;*/
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -29,6 +31,7 @@
     flex-direction: column;
     font-size: x-large;
     color: aliceblue;
+    /*color: #2D033B;*/
 }
 .home .text p{
     color: rgba(240, 248, 255, 0.43);
