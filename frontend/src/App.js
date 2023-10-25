@@ -127,9 +127,6 @@ function App() {
             content: "Profile",
             url:"/profile/user/"+userId,
         },
-        {
-            content : "Logout",
-        }
     ]
 
   return(
