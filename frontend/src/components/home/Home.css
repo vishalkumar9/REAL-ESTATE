@@ -3,12 +3,11 @@
     height: 100vh;
     border: 3px;
     box-sizing: border-box;
-    /*margin-top: 2rem;*/
 }
 
 .home .home_back {
     height: 100%;
-    background-image: url("../image/homebg.jpg");
+    background-image: url("../image/home_banner.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
