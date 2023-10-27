@@ -1,15 +1,38 @@
 .upperdiv{
-    background-image: url("../image/13294659_5199419.jpg");
-    /*background-image: linear-gradient(to top , black,#301934);*/
-    /*background-color: #2D033B;*/
+    background-color: rgba(45, 3, 59, 0.89);
     min-height: 100vh;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     width: 100%;
     overflow-y: hidden;
+    display: flex;
+    flex-direction: row;
+}
+.upperdiv .header{
+    width: calc(60% - 10px);
+    display: flex;
+    color: aliceblue;
+    padding: 200px 20px;
+    flex-direction: column;
+}
+.upperdiv .header h1{
+    font-weight: bold;
+    font-size: 300%;
+    padding: 20px 20px;
+}
+.upperdiv .header h2{
+    padding: 20px 20px;
+}
+.header .image_show{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.header .image_show img{
+    width: calc(50% - 10px);
+    padding: 20px 20px;
+    border-radius: 5rem;
 }
 .userAuth-div{
+    width: calc(50% - 10px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -96,4 +119,22 @@
 .userAuth-div .userAuth-main-div .userAuth-input-div button:hover{
     color: aliceblue;
     background-color: rgba(211, 129, 79, 0.98);
+}
+
+@media (max-width: 999px) {
+    .upperdiv{
+        flex-direction: column;
+    }
+    .upperdiv .header{
+        width: 100%;
+    }
+    .header .image_show img{
+        width: 50%;
+        padding: 1px 4px;
+        border-radius: 1px;
+    }
+    .userAuth-div{
+        margin-top: -20rem;
+        width: 100%;
+    }
 }

@@ -8,6 +8,8 @@ import {toast, ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import {Avatar} from "@mui/material";
 
+import im1 from "../image/houseImg1.jpg";
+import im2 from "../image/houseImg2.webp";
 
 const UserAuthentication = () => {
 
@@ -98,6 +100,14 @@ const UserAuthentication = () => {
 
     return (
         <div className="upperdiv">
+            <div className="header">
+                <h1>Discover Your Dream Home Today!</h1>
+                <h2>"Search, Explore, and Find Your Perfect Property"</h2>
+                <div className="image_show">
+                    <img src={im1} alt=""/>
+                    <img src={im2} alt=""/>
+                </div>
+            </div>
             <div className="userAuth-div">
                 <div className="userAuth-main-div">
                     <ToastContainer/>
