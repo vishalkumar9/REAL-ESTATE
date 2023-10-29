@@ -3,45 +3,72 @@
     height: 100vh;
     border: 3px;
     box-sizing: border-box;
-    /*margin-top: 2rem;*/
+}
+
+.home .featured_property{
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.home .featured_property h2{
+    text-align: center;
+    font-size: 300%;
+}
+
+.home .featured_property .display_propertytype_card{
+    margin-top:2rem;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 10px;
 }
 
 .home .home_back {
     height: 100%;
-    background-image: url("../image/homebg.jpg");
+    background-image: url("../image/home_banner.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     overflow: auto;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-
-.home .Recently_added_div{
+.home .Footer{
+    width: 100%;
+    background-color: #021526;
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
-    margin-top: 5rem;
-}
-.home .text{
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
-    flex-direction: column;
-    font-size: x-large;
-    color: aliceblue;
-    /*color: #2D033B;*/
-}
-.home .text p{
-    color: rgba(240, 248, 255, 0.43);
-    font-family: cursive;
-}
-.home .show_property{
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
+    color: aliceblue;
+}
+
+@media (min-width:860px ) and (max-width:1090px ){
+    .home .featured_property .display_propertytype_card{
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+
+@media (min-width:580px ) and (max-width:859px ){
+    .home .featured_property .display_propertytype_card{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media (max-width:579px ){
+    .home .featured_property .display_propertytype_card{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .home .featured_property h2{
+        margin-top: 2rem;
+        text-align: center;
+        font-size: 200%;
+    }
+
 }
