@@ -12,6 +12,7 @@ import './App.css';
 import PropertyDisplay from "./components/property/PropertyDisplay";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import LoadingSpinner from "./components/spinner/LoadingSpinner";
+import Footer from "./components/footer/Footer";
 // import {faSpinnerThird} from "@fortawesome/free-solid-svg-icons";
 // import {faSpinner}
 const About = React.lazy(() => import("./components/about/About"));
