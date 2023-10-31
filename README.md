@@ -1,4 +1,7 @@
 # REAL ESTATE
+
+![Image Alt Text](frontend/src/components/image/Website.png)
+
 ---
 # How you can run on your computer?
 - Clone the repo

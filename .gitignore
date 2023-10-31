@@ -5,3 +5,4 @@ backend/nodemon.json
 frontend/.firebase/
 frontend/.firebaserc
 frontend/firebase.json
+node_modules
