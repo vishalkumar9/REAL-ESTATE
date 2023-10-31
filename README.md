@@ -1,6 +1,6 @@
 # REAL ESTATE
 
-![Image Alt Text](frontend/src/components/image/Website.png)
+![Image Alt Text](https://raw.github.com/vishalkumar9/REAL-ESTATE/main/frontend/src/components/image/Website.png)
 
 ---
 # How you can run on your computer?
