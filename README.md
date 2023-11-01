@@ -5,6 +5,7 @@
 ---
 # How you can run on your computer?
 - Fork the repo
+- Clone your repo.
 ## Frontend
 ---
 1. go to frontend folder
