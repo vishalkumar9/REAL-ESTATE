@@ -28,7 +28,7 @@ server.use((req, res, next) => {
     next();
 });
 
-server.use("/users",userRoutes); // it will handle the authentication such as login and signup
+server.use("/users",userRoutes);
 server.use("/property",propertyRoutes);
 
 server.use((req,res,next)=>{
