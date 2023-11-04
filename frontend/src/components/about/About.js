@@ -13,21 +13,21 @@ import DevloperCard from "../card/DevloperCard";
 const About = () => {
     return (
         <div className="aboutus">
-            <div className="heading">
-                <h1>About Us</h1>
+            <div className="heading1 odd">
+                <h1>Who We Are?</h1>
+                <p>At Real Estate, we are more than just a real estate agency – we're your trusted partner on your journey to finding or selling your dream property. Our passion for real estate, commitment to excellence, and dedication to our clients set us apart in the industry.</p>
             </div>
-            <div className="main_aboutus">
-                <div className="heading1"><h2>Who We Are</h2></div>
-                <p>
-                    At Our website, we are passionate about revolutionizing the way people experience real estate. Our team of dedicated professionals is committed to providing exceptional services and delivering unparalleled value to our clients. With a deep understanding of the industry and a forward-thinking approach, we aim to create a seamless and rewarding real estate journey for all.
-                </p>
-                <div className="Founders">
-                    <h2>Meet Our Devloper</h2>
-                    <div className="container">
-                        <DevloperCard name="Vishal Kumar Singh" description="Our Lead Developer of this real estate website, responsible for bringing the vision to life through code. Together with his team, they have created a seamless platform that revolutionizes the way people engage with real estate online."/>
-                        {/*<DevloperCard name ="Abhishek Negi" description="Dedicated Developer and Researcher on this real estate website, working alongside the team to bring innovation and functionality to life. By leveraging his coding expertise and conducting thorough research, he has contributed to creating a dynamic platform that empowers users with comprehensive property information."/>*/}
-                        {/*<DevloperCard name = "Ayush Barakoti" description="Dedicated developer on this real estate website, working alongside the team to bring innovation and functionality to life.Together, they have crafted a user-centric solution that revolutionizes the way individuals interact with the real estate market."/>*/}
-                    </div>
+            <div className="heading2 even">
+                <h1>Our Story</h1>
+                <p>Our journey began with a vision to redefine the real estate experience, making it seamless, rewarding, and tailored to each unique situation. Over the years, we have not only realized this vision but have also built a reputation for our expertise, integrity, and outstanding service.</p>
+            </div>
+            <div className="heading3 odd">
+                <h1>Why Choose Us</h1>
+                <div className="reasons_tag">
+                    <h3 style={{color:"#00008B"}}>Expertise</h3>
+                    <h3 style={{color:"#00BFFF"}}>Transparency</h3>
+                    <h3 style={{color:"#FFA500"}}>Exceptional Service</h3>
+                    <h3 style={{color:"#008080"}}>Innovation</h3>
                 </div>
             </div>
         </div>

@@ -1,5 +1,8 @@
 .upperdiv{
-    background-color: rgba(45, 3, 59, 0.89);
+    background-image: radial-gradient(circle at 80% 50%, rgba(1, 10, 20, 0.88), #000017);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     min-height: 100vh;
     width: 100%;
     overflow-y: hidden;

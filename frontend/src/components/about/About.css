@@ -1,62 +1,65 @@
 .aboutus{
     width:100%;
-    min-height: 95vh;
-    /*margin-top:5rem;*/
-    /*background-image: url("../image/6937900_3485431.jpg");*/
-    background-image: linear-gradient(to top , black,#301934);
-    /*background-color: #2D033B;*/
+    height: 100vh;
+    background-image: radial-gradient(circle at 80% 50%, rgba(1, 10, 20, 0.88), #000017);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     overflow: auto;
 }
 
-.aboutus .heading{
-    height: 10vh;
-    margin-top: 2rem;
-    color: aliceblue;
-    font-size: x-large;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.aboutus .main_aboutus{
-    width: 60vw;
-    margin: 3rem auto;
+.aboutus .odd{
+    width: calc(80% - 10px);
+    height: 60vh;
+    margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    font-size: x-large;
     color: aliceblue;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
-.aboutus .main_aboutus .heading1{
-    padding: 2rem;
-}
-.aboutus .main_aboutus p{
-    padding: 0 1rem;
-}
-
-.aboutus .Founders{
-    margin-top: 2rem;
-    text-align: center;
-}
-
-.aboutus .Founders .container{
+.aboutus .even{
+    width: calc(80% - 10px);
+    margin: auto;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: end;
+    color: aliceblue;
+}
+
+.odd .reasons_tag{
+    width: calc(80% - 10px);
+    display: grid;
+    margin-top: 3rem;
+    grid-template-columns: 1fr 1fr;
+}
+
+.aboutus p{
+    width: calc(50% - 10px);
+}
+
+.aboutus h1{
+    font-size: 400%;
+}
+
+@media (min-width: 601px) and (max-width: 1080px) {
+    .odd{
+        width: calc(100% - 10px);
+    }
+    .even{
+        width: calc(100% - 10px);
+    }
+    .aboutus p{
+        width: calc(100% - 10px);
+    }
 }
 
 @media (max-width: 500px) {
-    .aboutus .main_aboutus{
-        width: 100vw;
+    .aboutus p{
+        width: calc(100% - 10px);
+    }
+    .odd .reasons_tag{
+        width: calc(100% - 10px);
     }
 }
