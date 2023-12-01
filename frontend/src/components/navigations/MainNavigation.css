@@ -4,7 +4,7 @@
 
 .custom_theme_navbar a{
     font-size: 125%;
-    color: aliceblue;
+    color: aliceblue !important;
     font-weight: bold;
 }
 
@@ -13,9 +13,21 @@
 }
 
 .custom_theme_navbar a:hover{
-    color: #007aff;
+    color: aliceblue !important;
+}
+
+
+
+.custom_theme_navbar .dropdown-menu{
+    background: transparent !important;
+}
+
+.custom_theme_navbar .dropdown-menu a:hover{
+    color: aliceblue !important;
+    background-color: transparent !important;
 }
 
 .custom_theme_navbar_btn{
     background-color: aliceblue;
 }
+

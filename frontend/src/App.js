@@ -13,11 +13,13 @@ import PropertyDisplay from "./components/property/PropertyDisplay";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import LoadingSpinner from "./components/spinner/LoadingSpinner";
 import Footer from "./components/footer/Footer";
+import UploadProperty from "./components/user/UploadProperty";
+import UserProperty from "./components/user/UserProperty";
 // import {faSpinnerThird} from "@fortawesome/free-solid-svg-icons";
 // import {faSpinner}
 const About = React.lazy(() => import("./components/about/About"));
 const UserAuthentication = React.lazy(() => import("./components/authentication/UserAuthentication"));
-const UserProfile = React.lazy(()=>import("./components/user/UserProfile"));
+const UserProfile = React.lazy(()=>import("./components/user/UploadProperty"));
 const MainNavigation = React.lazy(()=>import("./components/navigations/MainNavigation"));
 const Service = React.lazy(()=>import("./components/service/Service"));
 let logoutTimer;
@@ -126,7 +128,17 @@ function App() {
         },
         {
             content: "Profile",
-            url:"/profile/user/"+userId,
+            subContent:[
+                {
+                    content:"Upload property",
+                    url:"/profile/uploadproperty"
+                },
+                {
+                    content:"My property",
+                    url:"/profile/user/"+userId
+                },
+
+            ]
         },
     ]
 
@@ -144,7 +156,8 @@ function App() {
         <MainNavigation routes = {token ? routes2 : routes1}/>
           <Suspense fallback={<div className="center"><LoadingSpinner/></div>}>
               <Routes>
-                    <Route path="/profile/user/:userId" element = {<UserProfile/>}/>
+                    <Route path="/profile/uploadproperty" element = {<UploadProperty/>}/>
+                    <Route path="/profile/user/:userId" element = {<UserProperty/>}/>
                     <Route path="/property/*" element = {<PropertyDisplay/>}/>
                     <Route path="/register" element={<UserAuthentication/>}/>
                     <Route path="/aboutus" element={<About/>}/>
