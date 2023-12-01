@@ -11,11 +11,6 @@ import UploadProperty from "../form/UploadProperty";
 
 import "./UserProfile.css";
 
-import houseImg4 from "../image/homeIMage.jpg";
-import houseImg1 from "../image/houseImg1.jpg";
-import houseImg2 from "../image/houseImg2.webp";
-import houseImg3 from "../image/houseImg3.jpg";
-
 const UserProfile = () =>{
 
     const AuthC = useContext(AuthContext);
@@ -79,41 +74,13 @@ const UserProfile = () =>{
     return(
         <div className="user_main_div">
             <ToastContainer className="popup_message"/>
-            <div className="user_profile_back"></div>
-            <div className="user_profile">
-                <Avatar src={ownerDetails.profileImage} id="user_profile_image"/>
-                <div className="user_details">
-                    <span style={{color:"black"}}><h1>{ownerDetails.name}</h1></span>
-                    <span><h3>Email - {ownerDetails.email}</h3></span>
-                    <div className="bttn">
-                        {AuthC.userId===userId && <button>Edit Profile</button>}
-                        {AuthC.userId!==userId && <button>Contact</button>}
-                    </div>
-                </div>
-            </div>
-            {AuthC.userId===userId && <motion.div
-                style={{ scale }}
-            >
-                <motion.div
-                    style={{
-                        scaleY: scrollYProgress
-                    }}
-                />
+            {AuthC.userId===userId && <div>
                 <h1 className="headingText">UPLOAD PROPERTY</h1>
                 <div className="lower_div">
-                        <div className="imageShow_div">
-                            <div className="stack1">
-                                <img src = {houseImg1} alt = "" className="Img1"/>
-                                <img src = {houseImg2} alt = "" className="Img2"/>
-                            </div>
-                            <div className="stack2">
-                                <img src = {houseImg3} alt = "" className="Img3"/>
-                                <img src = {houseImg4} alt = ""  className="Img4"/>
-                            </div>
-                        </div>
                     <UploadProperty/>
                 </div>
-            </motion.div>}
+            </div>
+            }
             <div className="display_owner_property_conatainer">
                 <div className="display_owner_property">
                     {properties.length>0 && <h1 className="headingText">Listed Property</h1>}

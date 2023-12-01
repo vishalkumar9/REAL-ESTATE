@@ -19,6 +19,7 @@ const UploadProperty =   () => {
     const arrSuitedFor = ["Students","Professionals"];
     const arrConstructionStatus = ["Under Construction", "Ready To Move"];
 
+    console.log(error);
     return(
         <div className="form_outer_div">
             <form className="uploadForm_div">

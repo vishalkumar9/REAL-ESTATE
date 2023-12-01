@@ -1,153 +1,29 @@
 .user_main_div{
-    background-image: linear-gradient(to top , black,#301934);
-    min-width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top:5rem;
-}
-.user_main_div .user_profile_back{
-    height: 20rem;
-    width: 100%;
-    border-bottom-left-radius: 4rem;
-    border-bottom-right-radius: 4rem;
-    background-image: url("../image/iland.webp");
+    width:100%;
+    height: 100vh;
+    background-image: radial-gradient(circle at 80% 50%, rgba(1, 10, 20, 0.88), #000017);
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-}
-.user_main_div .user_profile{
-    position: absolute;
-    background-color: rgba(240, 248, 255, 0.57);
-    padding: 10px 10px;
-    max-width: 20rem;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    border: 0;
-    box-shadow: rgba(74, 1, 67, 0.84) 0 20px 30px -10px;
-    height: 20rem;
+    overflow: auto;
 }
 
-.user_main_div .user_profile #user_profile_image{
-    width: 10rem;
-    height: 10rem;
-    align-self: center;
-}
-.user_main_div .user_profile .user_details{
-    margin-bottom:2vh;
-}
-.user_main_div .user_profile .user_details .bttn{
-    display: flex;
-    flex-direction: row;
-}
-
-
-.user_main_div .user_profile .user_details button{
-    margin-top:15px;
-    margin-right:2px;
-    background-color: initial;
-    background-image: linear-gradient(-180deg, #c037a9, #301934);
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
-    color: #FFFFFF;
-    cursor: pointer;
-    display: inline-block;
-    font-family: Inter,-apple-system,system-ui,Roboto,"Helvetica Neue",Arial,sans-serif;
-    height: 44px;
-    line-height: 44px;
-    outline: 0;
-    overflow: hidden;
-    padding: 0 20px;
-    pointer-events: auto;
-    position: relative;
-    text-align: center;
-    touch-action: manipulation;
-    user-select: none;
-    -webkit-user-select: none;
-    vertical-align: top;
-    white-space: nowrap;
-    width: 50%;
-    border: 0;
-}
-
-.user_main_div .user_profile .user_details button:hover {
-    background: #c037a9;
-}
-
-.user_main_div .user_profile .user_details button:active{
-    background: #301934;
-}
 
 .user_main_div .headingText{
-    margin-top: 1vh;
+    margin-top: 5rem;
     text-align: center;
     font-size: 60px;
     font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(to bottom, white,#301934);
+    background: linear-gradient(to bottom, white, #040119);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 }
 
+
 .user_main_div .lower_div{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    width: 70%;
+    margin: 0 auto;
 }
-
-.user_main_div .imageShow_div{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 30px auto;
-}
-.user_main_div .imageShow_div .stack1{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-.user_main_div .imageShow_div .stack2{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-.user_main_div .imageShow_div img{
-    width: 40%;
-    height: 15rem;
-}
-
-.user_main_div .imageShow_div .Img1{
-    padding: 3px 3px;
-    border-top-left-radius:4rem;
-    border-top-right-radius:4rem;
-    border-bottom-left-radius:4rem;
-}
-.user_main_div .imageShow_div .Img2{
-    padding:3px 3px;
-    border-top-left-radius:4rem;
-    border-top-right-radius:4rem;
-    border-bottom-right-radius:4rem;
-}
-.user_main_div .imageShow_div .Img3{
-    padding: 3px 3px;
-    border-top-left-radius:4rem;
-    border-bottom-left-radius: 4rem;
-    border-bottom-right-radius:4rem;
-}
-.user_main_div .imageShow_div .Img4{
-    padding: 3px 3px;
-    border-top-right-radius: 4rem;
-    border-bottom-left-radius: 4rem;
-    border-bottom-right-radius:4rem;
-}
-
-.user_main_div .imageShow_div{
-    margin: 30px auto;
-}
-
 
 
 .user_main_div .display_owner_property_conatainer {
@@ -179,4 +55,9 @@
     -webkit-background-clip: text;
 }
 
-
+@media (max-width: 900px) {
+    .user_main_div .lower_div{
+        width: 100%;
+        margin: 0 auto;
+    }
+}
