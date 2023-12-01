@@ -49,10 +49,28 @@ const AuthC = useContext(AuthContext);
                     <div className="offcanvas-body">
                         <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                             {props.routes.map((routeDetails) => (
-                                <li className="nav-item">
-                                    <a className="nav-link" aria-current="page" href={routeDetails.url}>{routeDetails.content}</a>
+                                <li className={`nav-item ${routeDetails.content === "Profile" ? "dropdown" : ""}`} key={routeDetails.content}>
+                                    {routeDetails.content === "Profile" ? (
+                                        <div className="dropdown">
+                                            <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Profile
+                                            </a>
+                                            <ul className="dropdown-menu">
+                                                {routeDetails.subContent.map((subRouteDetails) => (
+                                                    <li key={subRouteDetails.content}>
+                                                        <a className="nav-link dropdown-item" href={subRouteDetails.url}>{subRouteDetails.content}</a>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    ) : (
+                                        <a className="nav-link" aria-current="page" href={routeDetails.url}>
+                                            {routeDetails.content}
+                                        </a>
+                                    )}
                                 </li>
                             ))}
+
                             {AuthC.isLoggedIn && <li className="nav-item">
                                 <a className="nav-link" aria-current="page" onClick={handleLogout}>Logout</a>
                             </li>}

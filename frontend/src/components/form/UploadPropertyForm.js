@@ -2,9 +2,9 @@ import React  from "react";
 
 import {useForm} from "../hook/formHook";
 
-import "./UploadProperty.css";
+import "./UploadPropertyForm.css";
 
-const UploadProperty =   () => {
+const UploadPropertyForm =   () => {
 
     const {propertyData, error, displayImages, handleChange, handleFileChange, uploadProperty } = useForm();
     
@@ -215,4 +215,4 @@ const UploadProperty =   () => {
     );
 }
 
-export default UploadProperty;
+export default UploadPropertyForm;

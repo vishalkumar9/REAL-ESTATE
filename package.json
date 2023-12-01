@@ -5,6 +5,7 @@
     "start": "concurrently \"npm run start-backend\" \"npm run start-frontend\""
   },
   "dependencies": {
+    "@types/react": "^18.2.39",
     "concurrently": "^8.2.2"
   }
 }
