@@ -2,7 +2,8 @@
   "scripts": {
     "start-backend": "cd backend && npm run dev",
     "start-frontend": "cd frontend && npm start",
-    "start": "concurrently \"npm run start-backend\" \"npm run start-frontend\""
+    "start": "concurrently \"npm run start-backend\" \"npm run start-frontend\"",
+    "format": "prettier --write \"src/**/*.js\""
   },
   "dependencies": {
     "@types/react": "^18.2.39",

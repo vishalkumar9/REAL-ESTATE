@@ -94,10 +94,6 @@ function App() {
       url: '/',
     },
     {
-      content: 'About Us',
-      url: '/aboutus',
-    },
-    {
       content: 'Register',
       url: '/register',
     },
@@ -106,10 +102,6 @@ function App() {
     {
       content: 'Home',
       url: '/',
-    },
-    {
-      content: 'About Us',
-      url: '/aboutus',
     },
     {
       content: 'Service',

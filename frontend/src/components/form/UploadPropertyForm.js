@@ -279,26 +279,6 @@ const UploadPropertyForm = () => {
             </div>
           </div>
         )}
-        {/*{propertyData.purposeType==="PG/Co-Living" && <div className="form_input_div">*/}
-        {/*    <span style={{color:"red", fontSize:"large"}}>*</span>*/}
-        {/*    <label>PG is For</label>*/}
-        {/*    <div className="option">*/}
-        {/*        { arrPgFor.map(value => (*/}
-        {/*            <button name="pgFor" value = {value} className = {value===propertyData.pgFor ? "active" : ""} onClick={handleChange}>{value}</button>*/}
-        {/*        ))}*/}
-        {/*    </div>*/}
-        {/*</div>*/}}
-        {/*{propertyData.purposeType === "PG/Co-Living" && <div className="form_input_div">*/}
-        {/*    <label>Best Suited For</label>*/}
-        {/*    <div className="option">*/}
-        {/*        {arrSuitedFor.map(value => (*/}
-        {/*            <button name="suitedFor" value={value}*/}
-        {/*                    className={value === propertyData.suitedFor ? "active" : ""}*/}
-        {/*                    onClick={handleChange}>{value}</button>*/}
-        {/*        ))}*/}
-        {/*    </div>*/}
-        {/*</div>*/}
-        {/*}*/}
         <h2>Address</h2>
         <div className="form_input_div">
           <span style={{ color: 'red', fontSize: 'large' }}>*</span>

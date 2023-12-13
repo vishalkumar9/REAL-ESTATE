@@ -14,7 +14,7 @@ const Footer = () => {
         {/*<img src={} alt={}/>*/}
         <ul className="link_list">
           <li>
-            <a>About</a>
+            <a href="/aboutus">About</a>
           </li>
           <li>
             <a>Privacy Policy</a>

@@ -5,6 +5,8 @@ export const useForm = () => {
   const AuthC = useContext(AuthContext)
 
   const [error, setError] = useState('please fill all the details marks with *')
+  const [displayImages, setDisplayImages] = useState([])
+  const [allImage, setAllImages] = useState([])
 
   const [propertyData, setPropertyData] = useState({
     propertyType: '',
@@ -28,8 +30,6 @@ export const useForm = () => {
     houseNo: '',
   })
 
-  const [displayImages, setDisplayImages] = useState([])
-  const [allImage, setAllImages] = useState([])
 
   useEffect(() => {
     setPropertyData((propertyData) => ({
@@ -63,6 +63,7 @@ export const useForm = () => {
   }, [propertyData.type])
 
   useEffect(() => {
+
     if (
       propertyData.propertyType !== '' &&
       propertyData.purposeType !== '' &&
@@ -72,11 +73,11 @@ export const useForm = () => {
       propertyData.district !== '' &&
       propertyData.location !== ''
     ) {
-      if (propertyData.type === 'plot') {
+      if (propertyData.type === 'Plot') {
         if (propertyData.purposeType === 'Sell' && propertyData.Price !== '') {
           setError(null)
         } else if (
-          propertyData.purposeType !== 'Sell' &&
+          propertyData.purposeType === 'Rent' &&
           propertyData.price !== ''
         ) {
           setError(null)
@@ -112,7 +113,7 @@ export const useForm = () => {
         }
       }
     }
-  }, [propertyData])
+  }, [propertyData,allImage])
 
   const uploadProperty = async (e) => {
     e.preventDefault()
