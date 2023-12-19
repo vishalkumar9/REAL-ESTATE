@@ -1,12 +1,6 @@
 import React from 'react'
 
-import FeatureCard from '../card/FeatureCard'
-
 import './About.css'
-
-import im1 from '../image/im1.png'
-import im2 from '../image/im2.png'
-import im3 from '../image/im3.png'
 
 const About = () => {
   return (

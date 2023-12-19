@@ -11,7 +11,6 @@ const Footer = () => {
             <button className="active">Submit</button>
           </form>
         </div>
-        {/*<img src={} alt={}/>*/}
         <ul className="link_list">
           <li>
             <a href="/aboutus">About</a>

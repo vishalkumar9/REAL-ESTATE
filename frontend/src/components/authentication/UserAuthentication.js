@@ -8,7 +8,7 @@ import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { Avatar } from '@mui/material'
 
-import im1 from '../image/houseImg1.jpg'
+import im1 from '../image/houseImg1.webp'
 import im2 from '../image/houseImg2.webp'
 
 const UserAuthentication = () => {

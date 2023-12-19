@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 
 import SearchBox from '../search/SearchBox'
 
@@ -6,11 +6,10 @@ import './Home.css'
 
 import 'react-toastify/dist/ReactToastify.css'
 import { PropertyTypeCard } from '../card/PropertyTypeCard'
-import h1 from '../image/1.png'
-import h2 from '../image/2.png'
-import h3 from '../image/3.png'
-import h4 from '../image/4.png'
-import h5 from '../image/5.png'
+import h1 from '../image/1.webp'
+import h2 from '../image/2.webp'
+import h3 from '../image/3.webp'
+import h4 from '../image/4.webp'
 import Footer from '../footer/Footer'
 const Home = () => {
   return (

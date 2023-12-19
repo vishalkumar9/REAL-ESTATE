@@ -27,6 +27,7 @@ const UserProperty = () => {
             },
           )
           const responseData = await response.json()
+          console.log(responseData);
           const ownerInfo = {
             name: responseData.name,
             email: responseData.email,

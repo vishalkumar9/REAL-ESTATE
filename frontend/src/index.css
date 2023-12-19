@@ -1,5 +1,5 @@
 body{
-    background-image: url("https://i.pinimg.com/originals/71/87/13/7187136a4e35bec058f219bfd21c8c6f.jpg");
+    background-image: radial-gradient(circle at 80% 50%, rgba(1, 10, 20, 0.88), #000017), url("./components/image/back.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

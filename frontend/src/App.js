@@ -103,10 +103,10 @@ function App() {
       content: 'Home',
       url: '/',
     },
-    {
-      content: 'Service',
-      url: '/service',
-    },
+    // {
+    //   content: 'Service',
+    //   url: '/service',
+    // },
     {
       content: 'Profile',
       subContent: [
@@ -148,7 +148,7 @@ function App() {
           <Route path="/property/*" element={<PropertyDisplay />} />
           <Route path="/register" element={<UserAuthentication />} />
           <Route path="/aboutus" element={<About />} />
-          <Route path="/service" element={<Service />} />
+          {/*<Route path="/service" element={<Service />} />*/}
           <Route path="/" element={<Home />} />
         </Routes>
       </Suspense>
