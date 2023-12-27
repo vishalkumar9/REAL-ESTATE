@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState, Suspense } from 'react'
+import React, { useContext, useEffect, useState} from 'react'
 import { toast } from 'react-toastify'
 import { AuthContext } from '../context/AuthContext'
-import OwnerPropertyCard from '../card/OwnerPropertyCard'
 import { useNavigate, useParams } from 'react-router-dom'
 import './UserProperty.css'
 import LoadingSpinner from '../spinner/LoadingSpinner'
+import PropertyCard from "../card/PropertyCard";
 const UserProperty = () => {
   const AuthC = useContext(AuthContext)
   const { userId } = useParams()
@@ -63,27 +63,14 @@ const UserProperty = () => {
   }, 5000)
 
   return (
-    <div className="user-property">
-      {loading ? (
-        <div className="center">
-          <LoadingSpinner />
-        </div>
-      ) : properties.length ? (
-        <div className="display_owner_property_container">
-          <div className="display_owner_property">
-            {properties.length > 0 && (
-              <h1 className="headingText">Listed Property</h1>
-            )}
+    <div className="user_property">
+      {loading ? (<div className="center"><LoadingSpinner /></div>)
+          : properties.length ?(
             <div className="owner_property">
               {properties.map((property, i) => (
-                <OwnerPropertyCard key={i} details={property} />
+                <PropertyCard key={i} details={property} />
               ))}
             </div>
-            {properties.length && (
-              <button onClick={handleDisplayOwnerProperty}>View All ></button>
-            )}
-          </div>
-        </div>
       ) : (
         <div className="message">
           <h1>204</h1>

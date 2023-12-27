@@ -1,4 +1,53 @@
-.full_card{
+.full_card {
+    margin: 50px 50px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    background-color: transparent;
+    width: 300px;
+    height: 400px;
+    border-radius: 1rem;
+    border: 2px solid rgba(16, 128, 185, 0.4);
+    color: aliceblue;
+    box-shadow: 0 1px 1px rgba(16, 128, 185, 0.4), 0 2px 8px rgba(16, 128, 185, 0.4), inset 0px 0px 0px 1px rgba(16, 128, 185, 0.4);
+    transition: transform 0.3s ease-in-out;
+}
+.full_card .image_container{
+    display: flex;
+    justify-content: center;
+    padding: 2px 2px;
+}
+
+.full_card .image_container img{
+    border-top-right-radius: 13px;
+    border-top-left-radius: 13px;
+    width: 294px;
+    height: 200px;
+}
+
+.full_card .info_container{
+    padding:3px 3px;
+    font-size: 20px;
+    flex-grow: 0.9;
+}
+
+.full_card button{
+    height: 3rem;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    padding: 2px 2px;
+    border: none;
+    background: rgb(3, 23, 41);
+    font-size: 20px;
+    color: aliceblue;
+}
+
+.full_card:hover{
+    background-color: aliceblue;
+    color: black;
+    transform: rotate(-1deg);
+    box-shadow: 0 1px 1px rgb(245, 247, 248), 0 2px 8px rgb(187, 207, 217), inset 0 0 0 1px rgba(16, 128, 185, 0.4);
+    button{
+        background-color: rgba(1, 18, 31, 0.2);
+        color: black;
+    }
 }

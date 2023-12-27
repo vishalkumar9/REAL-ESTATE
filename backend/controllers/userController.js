@@ -68,6 +68,7 @@ const userLogin = async(req,res,next)=>{
 };
 
 const userSignup = async (req,res,next)=>{
+    console.log(req.body);
     // this function is responsible for user signup
     const {name,email,password,image} = req.body;
     let existingUser;
@@ -75,7 +76,7 @@ const userSignup = async (req,res,next)=>{
     try{
         existingUser = await User.findOne({email:email});
     }catch (err){
-
+        console.log(err,"1");
         const error = new HttpError("Sign up failed, please try again later",500);
         return next(error);
     }
@@ -90,6 +91,7 @@ const userSignup = async (req,res,next)=>{
     try {
         hashPassword = await bcrypt.hash(password,12);
     }catch (err){
+        console.log(err,"2");
         const error = new HttpError("Sign up failed, please try again later",500);
         return next(error);
     }
@@ -111,6 +113,7 @@ const userSignup = async (req,res,next)=>{
         await createdNewUser.save();
 
     }catch (err){
+        console.log(err,"3");
         await cloudinary.uploader.destroy(public_Id);
         const error = new HttpError("sign up failed, please try again later",500);
         return next(err);
@@ -124,6 +127,7 @@ const userSignup = async (req,res,next)=>{
             { expiresIn: "24h" }
         );
     } catch (err) {
+        console.log(err,"4");
         const error = new HttpError("Signing up failed, please try again.", 500);
         return next(error);
     }

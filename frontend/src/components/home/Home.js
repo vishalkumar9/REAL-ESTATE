@@ -11,9 +11,11 @@ import h2 from '../image/2.webp'
 import h3 from '../image/3.webp'
 import h4 from '../image/4.webp'
 import Footer from '../footer/Footer'
+import MainNavigation from "../navigations/MainNavigation";
 const Home = () => {
   return (
     <div className="home">
+        <MainNavigation/>
       <div className="home_back">
         <SearchBox />
       </div>

@@ -40,7 +40,6 @@ server.use((error,req,res,next)=>{
     res.status(error.code || 500);
     res.json({message : error.message || "Unknown error occur"});
 })
-
 mongoose.connect(`mongodb+srv://${process.env.MONGOUSERNAME}:${process.env.MONGOPASSWORD}@local.myy6ou9.mongodb.net/${process.env.DATABASE}?retryWrites=true&w=majority`,
     { useNewUrlParser: true, useUnifiedTopology: true }).then(()=>{
         server.listen(process.env.PORT||5000);

@@ -1,4 +1,13 @@
 .map-container {
     width: 100%;
-    height: 60vh;
+    background-color: aliceblue;
+    overflow-x: auto;
+    position: relative;
 }
+.overlay_image {
+    width: 100%;
+    height: auto;
+    display: block;
+    mix-blend-mode: multiply;
+}
+

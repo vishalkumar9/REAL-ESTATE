@@ -7,7 +7,7 @@ const Map = ({ details }) => {
   useEffect(() => {
     const getImageUrl = async () => {
       const response = await fetch(
-        `https://dev.virtualearth.net/REST/v1/Imagery/Map/Road/${details.houseNo},${details.location},${details.city},${details.pinCode}?&mapSize=5000,1500&key=${process.env.REACT_APP_BING_MAP_API}`,
+        `https://dev.virtualearth.net/REST/v1/Imagery/Map/Road/${details.houseNo},${details.location},${details.city},${details.pinCode}?&mapSize=1500,500&key=${process.env.REACT_APP_BING_MAP_API}`,
       )
       setImageUrl(response.url)
     }
@@ -17,7 +17,7 @@ const Map = ({ details }) => {
 
   return (
     <div className="map-container">
-      {imageUrl ? <img src={imageUrl} alt="Map" /> : <p>Loading...</p>}
+      {imageUrl ? <img src={imageUrl} alt="Map"  className="overlay_image"/> : <p>Loading...</p>}
     </div>
   )
 }

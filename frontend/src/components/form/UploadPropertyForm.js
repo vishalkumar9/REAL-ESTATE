@@ -16,16 +16,13 @@ const UploadPropertyForm = () => {
 
   const arrPropertyType = ['Residential', 'Commercial']
   const arrPurpose = ['Rent', 'Sell']
-  const arrResidentialType = ['Flat', 'Plot', 'House', 'Apartment']
-  const arrCommercialType = ['Office', 'Retail Shop', 'Showroom', 'Warehouse']
+  const arrResidentialType = ['Flat', 'House', 'Apartment']
+  const arrCommercialType = ['Office', 'Showroom', 'Warehouse']
   const arrFurnishType = ['Fully Furnished', 'Semi Furnished', 'Unfurnished']
   const arrBhk = ['1', '2', '3', '4', '5', '6', '7']
   const arrBathroom = ['1', '2', '3', '4']
-  const arrPgFor = ['Girls', 'Boys']
-  const arrSuitedFor = ['Students', 'Professionals']
   const arrConstructionStatus = ['Under Construction', 'Ready To Move']
 
-  console.log(error)
   return (
     <div className="form_outer_div">
       <form className="uploadForm_div">

@@ -7,6 +7,7 @@ import PropertyDisplay from './components/property/PropertyDisplay'
 import LoadingSpinner from './components/spinner/LoadingSpinner'
 import UploadProperty from './components/user/UploadProperty'
 import UserProperty from './components/user/UserProperty'
+import PropertyView from "./components/property/PropertyView";
 
 const About = React.lazy(() => import('./components/about/About'))
 const UserAuthentication = React.lazy(
@@ -88,39 +89,6 @@ function App() {
     }
   }, [login])
 
-  const routes1 = [
-    {
-      content: 'Home',
-      url: '/',
-    },
-    {
-      content: 'Register',
-      url: '/register',
-    },
-  ]
-  const routes2 = [
-    {
-      content: 'Home',
-      url: '/',
-    },
-    // {
-    //   content: 'Service',
-    //   url: '/service',
-    // },
-    {
-      content: 'Profile',
-      subContent: [
-        {
-          content: 'Upload property',
-          url: '/profile/uploadproperty',
-        },
-        {
-          content: 'My property',
-          url: '/profile/user/' + userId,
-        },
-      ],
-    },
-  ]
 
   return (
     <AuthContext.Provider
@@ -134,7 +102,6 @@ function App() {
         logout: logout,
       }}
     >
-      <MainNavigation routes={token ? routes2 : routes1} />
       <Suspense
         fallback={
           <div className="center">
@@ -143,9 +110,10 @@ function App() {
         }
       >
         <Routes>
-          <Route path="/profile/uploadproperty" element={<UploadProperty />} />
-          <Route path="/profile/user/:userId" element={<UserProperty />} />
-          <Route path="/property/*" element={<PropertyDisplay />} />
+            {!!token && <Route path="/profile/uploadproperty" element={<UploadProperty />} />}
+            {!!token && <Route path="/profile/user/:userId" element={<UserProperty />} />}
+          <Route path="/property/:propertyId" element={<PropertyView/>}></Route>
+          <Route path="/property" element={<PropertyDisplay />} />
           <Route path="/register" element={<UserAuthentication />} />
           <Route path="/aboutus" element={<About />} />
           {/*<Route path="/service" element={<Service />} />*/}

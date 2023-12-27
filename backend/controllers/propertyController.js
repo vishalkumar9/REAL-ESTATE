@@ -81,15 +81,21 @@ const uploadProperty = async(req,res,next) => {
 
 
 const searchProperty = async(req,res,next) => {
-    const{ city, location, purposeType, propertyType, maxPrice} = req.body;
+    console.log(req.query);
+    const location = req.query.location;
+    // const{ location, purposeType, propertyType, maxPrice} = req.body;
     let properties;
     try{
         properties = await Property.find({
-            city: { $regex: new RegExp(city || "","i")},
-            location: { $regex: new RegExp(location || "","i")},
-            purposeType:{ $regex: new RegExp(purposeType || "","i")},
-            type: { $regex: new RegExp(propertyType || "","i")},
-            price:{$lte: maxPrice || Number.MAX_SAFE_INTEGER},
+            // city: { $regex: new RegExp(city || "","i")},
+            // location: { $regex: new RegExp(location || "","i")},
+            // purposeType:{ $regex: new RegExp(purposeType || "","i")},
+            // type: { $regex: new RegExp(propertyType || "","i")},
+            // price:{$lte: maxPrice || Number.MAX_SAFE_INTEGER},
+                $or: [
+                    { city: { $regex: new RegExp(location || "", "i") } },
+                    { location: { $regex: new RegExp(location || "", "i") } }
+                ],
         },
         "city location houseNo pinCode purposeType type price images"
         ).populate("user").exec();
