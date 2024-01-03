@@ -1,172 +1,47 @@
-.form_outer_div{
-    background:transparent;
-    overflow-x: hidden;
-    overflow-y: auto;
-    height: 50vh;
+.uploadForm_div{
     width: 100%;
-    padding: 20px;
-    margin-top: 20%;
-}
-
-.form_outer_div::-webkit-scrollbar{
-    display: none;
-}
-.form_outer_div .uploadForm_div h2{
-    color: aliceblue;
-    margin-top: 4rem;
-}
-
-.form_outer_div .uploadForm_div .displayUploadImage{
-    display: flex;
-    flex-direction: row;
-    height: 5rem;
-    overflow-x: auto;
-    overflow-y: hidden;
-}
-
-.form_outer_div .uploadForm_div .displayUploadImage::-webkit-scrollbar{
-    display: none;
-}
-
-
-.form_outer_div .uploadForm_div .displayUploadImage img{
-    padding: 10px 10px;
-    min-width: 5rem;
-    max-width: 5rem;
-}
-
-
-
-.form_outer_div .form_input_div{
-    margin-top: 15px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    align-items: center;
 }
-.form_outer_div .form_input_div .option{
+
+.uploadForm_div .custom_div{
+    margin-top: 2rem;
+    width: 70%;
+    min-width: 300px;
+}
+
+.uploadForm_div .custom_div label{
+    border-color: gray;
+    color: #0f172a;
+}
+
+.uploadForm_div .custom_div label:hover{
+    border-color: gray;
+    color: #0f172a;
+}
+
+.uploadForm_div .custom_div .custom_input:checked + .custom_label{
+    background-color:#0f172a;
+    color: #e2e8f0;
+    border-color: #0f172a;
+}
+
+
+.uploadForm_div .filter_btn{
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-}
-.form_outer_div .form_input_div label{
-    font-size: large;
-    /*font-family: "Gill Sans MT";*/
-    background: aliceblue;
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-}
-.form_outer_div .form_input_div span{
-    position: relative;
-    top: 20px;
-    right:10px;
-}
-.form_outer_div .form_input_div input{
-    width: 80%;
-    border:0;
-    outline: 0;
-    font-size: large;
-    color: aliceblue;
-    background: transparent;
-    border-bottom: 2px solid aliceblue;
-    margin-top: 1.2rem;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
 }
 
-
-.form_outer_div .form_input_div button {
-    border-radius: 5px;
-    cursor: pointer;
-    display: inline-block;
-    font-size: large;
-    font-family: Inter,-apple-system,system-ui,Roboto,"Helvetica Neue",Arial,sans-serif;
-    height: 44px;
-    line-height: 44px;
-    outline: 0;
-    overflow: hidden;
-    padding: 0 20px;
-    pointer-events: auto;
-    position: relative;
-    text-align: center;
-    touch-action: manipulation;
-    user-select: none;
-    -webkit-user-select: none;
-    vertical-align: top;
-    white-space: nowrap;
-    width: fit-content;
-    border: 1px solid aliceblue;
-    margin: 10px 10px;
-    color:aliceblue;
-    background: transparent;
-    border-top-right-radius: 1rem;
-}
-
-.form_outer_div .uploadForm_div .active{
-    background-color: #011925;
-    color: aliceblue;
-    border-color: #011925;
-}
-
-
-.submitButton button{
-    margin: 30px 0;
-    background-color: initial;
-    background-image: linear-gradient(-180deg, black, #1080b9);
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
-    color: #FFFFFF;
-    cursor: pointer;
-    display: inline-block;
-    font-family: Inter,-apple-system,system-ui,Roboto,"Helvetica Neue",Arial,sans-serif;
-    height: 44px;
-    line-height: 44px;
-    outline: 0;
-    overflow: hidden;
-    padding: 0 20px;
-    pointer-events: auto;
-    position: relative;
-    text-align: center;
-    touch-action: manipulation;
-    user-select: none;
-    -webkit-user-select: none;
-    vertical-align: top;
-    white-space: nowrap;
-    width: fit-content;
-    border: 0;
-}
-
-.blockButton button{
-    margin: 30px 0;
-    background-color: initial;
-    background-image: linear-gradient(-180deg, black, #011925);
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
-    color: rgba(240, 248, 255, 0.4);
-    cursor: pointer;
-    display: inline-block;
-    font-family: Inter,-apple-system,system-ui,Roboto,"Helvetica Neue",Arial,sans-serif;
-    height: 44px;
-    line-height: 44px;
-    outline: 0;
-    overflow: hidden;
-    padding: 0 20px;
-    pointer-events: auto;
-    position: relative;
-    text-align: center;
-    touch-action: manipulation;
-    user-select: none;
-    -webkit-user-select: none;
-    vertical-align: top;
-    white-space: nowrap;
-    width: fit-content;
-    border: 0;
-}
-
-.submitButton button:hover {
-    background: #023853;
-}
-.submitButton button:active{
-    background: #023853;
-}
-
-.blockButton button:disabled{
-    background-color: #011925;
+.uploadForm_div .filter_btn button{
+    width: 8rem;
+    height: 2.5rem;
+    border: none;
+    border-radius:10px ;
+    font-size: 20px;
+    margin: 20px 4px;
 }

@@ -17,7 +17,6 @@ const UserProfile = React.lazy(() => import('./components/user/UploadProperty'))
 const MainNavigation = React.lazy(
   () => import('./components/navigations/MainNavigation'),
 )
-const Service = React.lazy(() => import('./components/service/Service'))
 let logoutTimer
 
 function App() {
@@ -102,6 +101,7 @@ function App() {
         logout: logout,
       }}
     >
+        <MainNavigation/>
       <Suspense
         fallback={
           <div className="center">
@@ -116,7 +116,6 @@ function App() {
           <Route path="/property" element={<PropertyDisplay />} />
           <Route path="/register" element={<UserAuthentication />} />
           <Route path="/aboutus" element={<About />} />
-          {/*<Route path="/service" element={<Service />} />*/}
           <Route path="/" element={<Home />} />
         </Routes>
       </Suspense>

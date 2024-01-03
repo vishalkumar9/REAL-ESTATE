@@ -29,6 +29,12 @@
     flex-wrap: nowrap;
 }
 
+.property_view .maindisplay_area .image_container img{
+    width: calc(50%);
+}
+
+
+
 .property_view .maindisplay_area .image_container_container::-webkit-scrollbar {
     margin-top: 1rem;
     height: 5px;

@@ -2,7 +2,6 @@ import React, { useState, useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { AuthContext } from '../context/AuthContext'
-import ShowOption from './ShowOption'
 
 import './SearchBox.css'
 
@@ -40,7 +39,6 @@ const SearchBox = () => {
   }
 
     const handleChange = (e) =>{
-        e.preventDefault();
         setLocation(e.target.value);
         handleSubmit();
     }

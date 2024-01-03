@@ -4,16 +4,6 @@
 }
 
 
-.user_main_div .headingText{
-    margin-top: 5rem;
-    text-align: center;
-    font-size: 60px;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(to bottom, white, #040119);
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-}
-
 
 .user_main_div .lower_div{
     width: 70%;

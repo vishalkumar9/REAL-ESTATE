@@ -80,7 +80,6 @@ const UserAuthentication = () => {
         )
         navigate('/')
       } catch (err) {
-        console.log(err);
         toast.error('SignUp Failed', { autoClose: 1000 })
       }
     }

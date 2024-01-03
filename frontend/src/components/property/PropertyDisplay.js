@@ -19,7 +19,6 @@ const PropertyDisplay = () => {
     const handelModal = (details) => {
         setDetails(details)
         history(`${details._id}`)
-        console.log(details._id);
     }
 
 
@@ -39,7 +38,6 @@ const PropertyDisplay = () => {
         for (let i = 0; i < searchProperty.properties.length; i++) {
             if ((searchProperty.properties[i].purposeType === selectedPurposeType || selectedPurposeType === "All") && (searchProperty.properties[i].type === selectedType || selectedType === "All")) {
                 filteredProperty.push(searchProperty.properties[i]);
-                console.log(searchProperty.properties[i]);
             }
         }
 

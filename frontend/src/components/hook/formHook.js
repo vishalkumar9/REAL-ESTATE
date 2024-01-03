@@ -9,133 +9,28 @@ export const useForm = () => {
   const [allImage, setAllImages] = useState([])
 
   const [propertyData, setPropertyData] = useState({
-    propertyType: '',
-    purposeType: '',
-    type: '',
-    constructionStatus: '',
-    ageOfProperty: '',
-    bhk: '',
-    countOfBathroom: '',
-    countOfBalcony: '',
-    countOfParking: '',
-    builtUpArea: '',
+    purposeType: '', // rent or sell
+    type: '',  // flat, showroom, apartment etc
     price: '',
-    length: '',
-    width: '',
-    furnishType: '',
-    suitedFor: '',
+    description:'',
     district: '',
     location: '',
     pinCode: '',
     houseNo: '',
   })
 
-
-  useEffect(() => {
-    setPropertyData((propertyData) => ({
-      ...propertyData,
-      purposeType: '',
-    }))
-  }, [propertyData.propertyType])
-
-  useEffect(() => {
-    setPropertyData((propertyData) => ({
-      ...propertyData,
-      bhk: '',
-      suitedFor: '',
-      type: '',
-      countOfBathroom: '',
-      countOfBalcony: '',
-      countOfParking: '',
-    }))
-  }, [propertyData.purposeType])
-
-  useEffect(() => {
-    setPropertyData((propertyData) => ({
-      ...propertyData,
-      bhk: '',
-      countOfBathroom: '',
-      countOfBalcony: '',
-      countOfParking: '',
-      furnishType: '',
-      constructionStatus: '',
-    }))
-  }, [propertyData.type])
-
-  useEffect(() => {
-
-    if (
-      propertyData.propertyType !== '' &&
-      propertyData.purposeType !== '' &&
-      propertyData.type !== '' &&
-      propertyData.houseNo !== '' &&
-      propertyData.pinCode !== '' &&
-      propertyData.district !== '' &&
-      propertyData.location !== ''
-    ) {
-      if (propertyData.type === 'Plot') {
-        if (propertyData.purposeType === 'Sell' && propertyData.Price !== '') {
-          setError(null)
-        } else if (
-          propertyData.purposeType === 'Rent' &&
-          propertyData.price !== ''
-        ) {
-          setError(null)
-        }
-      } else if (propertyData.propertyType === 'Commercial') {
-        if (propertyData.purposeType === 'Sell' && propertyData.price !== '') {
-          setError(null)
-        } else if (
-          propertyData.purposeType !== 'Sell' &&
-          propertyData.price !== ''
-        ) {
-          setError(null)
-        }
-      } else {
-        if (
-          propertyData.bhk !== '' &&
-          propertyData.countOfBathroom !== '' &&
-          propertyData.constructionStatus !== '' &&
-          propertyData.furnishType !== '' &&
-          propertyData.builtUpArea !== ''
-        ) {
-          if (
-            propertyData.purposeType === 'Sell' &&
-            propertyData.price !== ''
-          ) {
-            setError(null)
-          } else if (
-            propertyData.purposeType !== 'Sell' &&
-            propertyData.price !== ''
-          ) {
-            setError(null)
-          }
-        }
-      }
-    }
-  }, [propertyData,allImage])
-
   const uploadProperty = async (e) => {
     e.preventDefault()
     try {
       const formData = new FormData()
-      formData.append('propertyType', propertyData.propertyType)
-      formData.append('purposeType', propertyData.purposeType)
-      formData.append('type', propertyData.type)
-      formData.append('constructionStatus', propertyData.constructionStatus)
-      formData.append('ageOfProperty', propertyData.ageOfProperty)
-      formData.append('bhk', propertyData.bhk)
-      formData.append('countOfBathroom', propertyData.countOfBathroom)
-      formData.append('builtUpArea', propertyData.builtUpArea)
-      formData.append('price', propertyData.price)
-      formData.append('length', propertyData.length)
-      formData.append('width', propertyData.width)
-      formData.append('furnishType', propertyData.furnishType)
-      formData.append('suitedFor', propertyData.suitedFor)
-      formData.append('city', propertyData.district)
-      formData.append('location', propertyData.location)
-      formData.append('pinCode', propertyData.pinCode)
-      formData.append('houseNo', propertyData.houseNo)
+      formData.append('purposeType', propertyData.purposeType);
+      formData.append('type', propertyData.type);
+      formData.append('price', propertyData.price);
+      formData.append('description', propertyData.description);
+      formData.append('district', propertyData.district);
+      formData.append('location', propertyData.location);
+      formData.append('pinCode', propertyData.pinCode);
+      formData.append('houseNo', propertyData.houseNo);
 
       for (let i = 0; i < allImage.length; i++) {
         formData.append('image', allImage[i])
@@ -177,6 +72,7 @@ export const useForm = () => {
 
   const handleChange = (e) => {
     e.preventDefault()
+    console.log(e.target);
     setPropertyData((propertyData) => ({
       ...propertyData,
       [e.target.name]: e.target.value,

@@ -4,17 +4,18 @@
     flex-direction: column;
     background-color: transparent;
     width: 300px;
-    height: 400px;
+    height: 250px;
     border-radius: 1rem;
-    border: 2px solid rgba(16, 128, 185, 0.4);
-    color: aliceblue;
-    box-shadow: 0 1px 1px rgba(16, 128, 185, 0.4), 0 2px 8px rgba(16, 128, 185, 0.4), inset 0px 0px 0px 1px rgba(16, 128, 185, 0.4);
+    border: 2px solid #0f172a;
+    color: #0f172a;
+    box-shadow: 0 1px 1px #0f172a, 0 2px 8px #0f172a, inset 0px 0px 0px 1px #0f172a;
     transition: transform 0.3s ease-in-out;
 }
 .full_card .image_container{
     display: flex;
     justify-content: center;
     padding: 2px 2px;
+    flex-grow: 1;
 }
 
 .full_card .image_container img{
@@ -24,11 +25,6 @@
     height: 200px;
 }
 
-.full_card .info_container{
-    padding:3px 3px;
-    font-size: 20px;
-    flex-grow: 0.9;
-}
 
 .full_card button{
     height: 3rem;

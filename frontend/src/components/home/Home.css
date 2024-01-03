@@ -4,9 +4,7 @@
     border: 3px;
     box-sizing: border-box;
 }
-
 .home .featured_property{
-    background-color: aliceblue;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,48 +25,135 @@
 }
 
 .home .home_back {
-    height: 100%;
-    /*background-image: url("../image/home_banner.webp");*/
+    height: 70vh;
+    width: 80%;
+    margin: auto;
+    background-image: url("../image/home_banner.webp");
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    overflow: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.home .Footer{
-    width: 100%;
-    background-color: #021526;
+    border-radius: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: aliceblue;
+}
+.home_back h1{
+    color: #e2e8f0;
 }
 
-@media (min-width:860px ) and (max-width:1090px ){
-    .home .featured_property .display_propertytype_card{
-        grid-template-columns: repeat(3,1fr);
-    }
+.home .header{
+    margin-top: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #0f172a;
+    padding: 0 20px;
+    text-align: center;
 }
 
-@media (min-width:580px ) and (max-width:859px ){
-    .home .featured_property .display_propertytype_card{
-        grid-template-columns: repeat(2,1fr);
-    }
+.home .property_scroller{
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: #cbd5e1;
+    height: 30vh;
 }
 
-@media (max-width:579px ){
-    .home .featured_property .display_propertytype_card{
-        grid-template-columns: repeat(1,1fr);
-    }
-    .home .featured_property h2{
-        margin-top: 2rem;
-        text-align: center;
-        font-size: 200%;
-    }
+.home .property_scroller .propertyByCity{
+    width: 80%;
+    height: 30vh;
+    margin: auto;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    overflow: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth; /* This enables smooth scrolling */
+    transition: transform 1s ease-in-out; /* Smooth transition effect */
+    -webkit-overflow-scrolling: touch; /* Optional: Enable smooth scrolling on iOS */
+}
 
+
+.home .property_scroller .propertyByCity img{
+    height: 150px;
+    width: 150px;
+    border-radius: 8rem;
+}
+
+.home .property_scroller .propertyByCity .notfirst{
+    margin-left: 100px;
+}
+
+.home .property_scroller .propertyByCity .img_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home .property_scroller button{
+    border: none;
+    background-color: transparent;
+    padding: 0 30px;
+}
+
+.home .quotes{
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.home .quotes img{
+    min-width: 40%;
+    height: 50vh;
+    margin: 10px 10px;
+    border-radius: 1rem;
+}
+
+.home .quotes_container{
+    min-width: 40%;
+    height: 50vh;
+    background-color: #e2e8f0;
+    border-radius: 1rem;
+    margin: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #020617;
+}
+
+.home .testimonials{
+    width: 100%;
+    min-height: 50vh;
+    background-color: #020617;
+}
+
+.home .testimonials .testimonials_header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #e2e8f0;
+    text-align: center;
+}
+.home .testimonials .testimonials_header h1{
+    margin-top: 4rem;
+}
+
+
+.home .testimonials .review_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

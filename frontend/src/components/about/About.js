@@ -1,37 +1,40 @@
 import React from 'react'
 
 import './About.css'
+import mission from "../image/mission.webp";
+import CountUp from "react-countup";
 
+import vishal from "../image/vishal.jpg";
 const About = () => {
   return (
     <div className="aboutus">
-      <div className="heading1 odd">
-        <h1>Who We Are?</h1>
-        <p>
-          At Real Estate, we are more than just a real estate agency – we're
-          your trusted partner on your journey to finding or selling your dream
-          property. Our passion for real estate, commitment to excellence, and
-          dedication to our clients set us apart in the industry.
-        </p>
+      <div className="aboutus_back">
+        <h1>"Learn More About Us"</h1>
       </div>
-      <div className="heading2 even">
-        <h1>Our Story</h1>
-        <p>
-          Our journey began with a vision to redefine the real estate
-          experience, making it seamless, rewarding, and tailored to each unique
-          situation. Over the years, we have not only realized this vision but
-          have also built a reputation for our expertise, integrity, and
-          outstanding service.
-        </p>
-      </div>
-      <div className="heading3 odd">
-        <h1>Why Choose Us</h1>
-        <div className="reasons_tag">
-          <h3 style={{ color: '#00008B' }}>Expertise</h3>
-          <h3 style={{ color: '#00BFFF' }}>Transparency</h3>
-          <h3 style={{ color: '#FFA500' }}>Exceptional Service</h3>
-          <h3 style={{ color: '#008080' }}>Innovation</h3>
+      <div className="mission">
+        <div className="general_card">
+          <h1>
+            We're on a Mission to Change View of Real Estate Field
+          </h1>
+          <img src={mission} alt=""/>
         </div>
+        <div className="general_card">
+            "Transforming the landscape of real estate, one innovative perspective at a time. Our mission isn't just about properties; it's about redefining experiences, creating connections, and shaping futures. From dream homes to visionary investments, we're dedicated to changing the way you perceive real estate – with passion, expertise, and a commitment to your journey."
+        </div>
+      </div>
+      <div className="counting_section">
+          <div className="show">
+              <CountUp end={2000} duration={2.5} style={{fontSize:"40px"}}/>
+              <p>Property View</p>
+          </div>
+          <div className="show">
+              <CountUp end={1800} duration={2.5} style={{fontSize:"40px"}}/>
+              <p>Happy  customers</p>
+          </div>
+          <div className="show">
+              <CountUp end={100} duration={2.5} style={{fontSize:"40px"}}/>
+              <p>Property listing</p>
+          </div>
       </div>
     </div>
   )

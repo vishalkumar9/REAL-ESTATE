@@ -5,13 +5,15 @@
 }
 .search_box .input_main_div{
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
     justify-content: space-around;
     background-color: aliceblue;
-    max-width: 50%;
-    min-width: 300px;
+    max-width: 60%;
     margin:auto;
     border-radius: 5px;
-    height: 4.5rem;
+    max-height: 6rem;
+    min-height: 4.5rem;
     align-items: center;
 }
 
@@ -44,4 +46,10 @@
     color: #ffffff;
     height: 2.5rem;
     background: rgb(35, 2, 45);
+}
+
+@media (max-width: 460px) {
+    .search_box .input_main_div{
+        max-width: calc(100% - 10px);
+    }
 }
