@@ -5,7 +5,6 @@ export const useForm = () => {
   const AuthC = useContext(AuthContext)
 
   const [error, setError] = useState('please fill all the details marks with *')
-  const [displayImages, setDisplayImages] = useState([])
   const [allImage, setAllImages] = useState([])
 
   const [propertyData, setPropertyData] = useState({
@@ -13,24 +12,32 @@ export const useForm = () => {
     type: '',  // flat, showroom, apartment etc
     price: '',
     description:'',
-    district: '',
+    city: '',
     location: '',
     pinCode: '',
-    houseNo: '',
+    streetNo: '',
   })
 
   const uploadProperty = async (e) => {
     e.preventDefault()
+
     try {
+
+      for(let key in propertyData)
+        if (propertyData.hasOwnProperty(key) && (propertyData[key].trim() === '' || propertyData[key] === undefined)) {
+          setError(true);
+          throw new Error("Please fill up the complete form");
+        }
+
       const formData = new FormData()
       formData.append('purposeType', propertyData.purposeType);
       formData.append('type', propertyData.type);
       formData.append('price', propertyData.price);
       formData.append('description', propertyData.description);
-      formData.append('district', propertyData.district);
+      formData.append('city', propertyData.city);
       formData.append('location', propertyData.location);
       formData.append('pinCode', propertyData.pinCode);
-      formData.append('houseNo', propertyData.houseNo);
+      formData.append('streetNo', propertyData.streetNo);
 
       for (let i = 0; i < allImage.length; i++) {
         formData.append('image', allImage[i])
@@ -52,26 +59,18 @@ export const useForm = () => {
         toast.error('Please complete all required fields', { autoClose: 2000 })
       }
     } catch (err) {
-      toast.error('something went wrong', { autoClose: 2000 })
+      toast.error(err.message, { autoClose: 2000 })
     }
   }
 
   const handleFileChange = (e) => {
     e.preventDefault()
     const files = e.target.files
-    let previewImages = []
-
-    for (let i = 0; i < files.length; i++) {
-      const file = files[i]
-      const previewURL = URL.createObjectURL(file)
-      previewImages.push(previewURL)
-    }
-    setDisplayImages(previewImages)
     setAllImages(files)
   }
 
   const handleChange = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     console.log(e.target);
     setPropertyData((propertyData) => ({
       ...propertyData,
@@ -82,7 +81,6 @@ export const useForm = () => {
   return {
     propertyData,
     error,
-    displayImages,
     handleChange,
     handleFileChange,
     uploadProperty,

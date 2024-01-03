@@ -5,19 +5,16 @@ import { useForm } from '../hook/formHook'
 import './UploadPropertyForm.css'
 
 const UploadPropertyForm = () => {
+
+  const arrType = ["Flat","House","Apartment","Showroom","Office"];
   const {
     propertyData,
     error,
-    displayImages,
     handleChange,
     handleFileChange,
     uploadProperty,
   } = useForm();
 
-  const handleSubmit = (e) =>{
-      e.preventDefault();
-      console.log(propertyData);
-  }
 
   return (
       <form className="uploadForm_div">
@@ -28,31 +25,29 @@ const UploadPropertyForm = () => {
           <label className="btn btn-outline-primary custom_label" htmlFor="btnradio2">Sell</label>
         </div>
         <div className="filter_btn custom_div">
-          <button style={{background: "#64748b", color: "#f8fafc"}}>Flat</button>
-          <button style={{background: "#64748b", color: "#f8fafc"}}>House</button>
-          <button style={{background: "#64748b", color: "#f8fafc"}}>Apartment</button>
-          <button style={{background: "#64748b", color: "#f8fafc"}}>Showroom</button>
-          <button style={{background: "#64748b", color: "#f8fafc"}}>Office</button>
+            {arrType.map((content,i) => (
+                <button key={i} style={propertyData.type===content ?{background: "#0f172a", color: "#64748b"} : {background: "#64748b", color: "#f8fafc"}} value={content} name="type" onClick={handleChange}>{content}</button>
+            ))}
         </div>
         <div className="input-group input-group-lg mb-3 custom_div">
           <span className="input-group-text">$</span>
-          <input type="text" className="form-control" aria-label="Dollar amount (with dot and two decimal places)"/>
+          <input type="text" className="form-control" name="price" aria-label="Dollar amount (with dot and two decimal places)" onChange={handleChange}/>
         </div>
         <div className="input-group input-group-lg custom_div">
             <span className="input-group-text">About Property</span>
-            <textarea className="form-control" aria-label="With textarea"></textarea>
+            <textarea className="form-control" name="description" aria-label="With textarea" onChange={handleChange}></textarea>
         </div>
         <div className="input-group input-group-lg custom_div d-flex flex-wrap">
               <span className="input-group-text">Address</span>
-              <input type="text" aria-label="StreetNo" className="form-control w-50" placeholder="StreetNo"/>
-              <input type="text" aria-label="Location" className="form-control w-25" placeholder="location"/>
-              <input type="text" aria-label="City" className="form-control w-25" placeholder="City"/>
-              <input type="text" aria-label="Pincode" className="form-control w-25" placeholder="Pincode"/>
+              <input type="text" name="streetNo" className="form-control w-50" placeholder="StreetNo" onChange={handleChange}/>
+              <input type="text" name="location"  className="form-control w-25" placeholder="location" onChange={handleChange}/>
+              <input type="text" name="city" className="form-control w-25" placeholder="City" onChange={handleChange}/>
+              <input type="text" name="pinCode" className="form-control w-25" placeholder="Pincode" onChange={handleChange}/>
         </div>
         <div className="input-group input-group-lg custom_div">
               <input type="file" className="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
                      aria-label="Upload" multiple={true} accept="image/*" name="imageFiles" onChange={handleFileChange}/>
-              <button className="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04" onClick={handleSubmit}>Submit</button>
+              <button className="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04" onClick={uploadProperty}>Submit</button>
         </div>
       </form>
   )

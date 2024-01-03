@@ -1,6 +1,7 @@
 .upperdiv{
     display: flex;
     flex-direction: row;
+    background-color: #0f172a;
 }
 .upperdiv .header{
     width: calc(60% - 10px);

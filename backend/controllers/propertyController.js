@@ -34,32 +34,12 @@ const uploadProperty = async(req,res,next) => {
 
         const uploader = async (path) => await cloudinary.uploader.upload(path, {folder: property.id});
         for(const file of images) {
-            const { filepath } = file;
+            const {filepath} = file;
             const newPath = await uploader(filepath);
 
             property.images.push(newPath.url);
             fs.unlinkSync(filepath);
         }
-
-        // check if the city already exists in the AvailableCity collection
-        const { city, location } = data;
-        const cityExists = await Location.exists({ name: city });
-
-        // if the city does not exist, create a new document for it
-        if (!cityExists) {
-            const availableCLocation = new Location({
-                city: city,
-                locations: [location],
-            });
-            await availableCLocation.save({ session });
-        } else {
-            // if the city exists, add the location to its locations array
-            await Location.updateOne(
-                { city: city },
-                { $addToSet: { locations: location } }
-            ).session(session);
-        }
-
         property.user = user;
         await property.save({ session });
         await session.commitTransaction();
@@ -83,21 +63,15 @@ const uploadProperty = async(req,res,next) => {
 const searchProperty = async(req,res,next) => {
     console.log(req.query);
     const location = req.query.location;
-    // const{ location, purposeType, propertyType, maxPrice} = req.body;
     let properties;
     try{
         properties = await Property.find({
-            // city: { $regex: new RegExp(city || "","i")},
-            // location: { $regex: new RegExp(location || "","i")},
-            // purposeType:{ $regex: new RegExp(purposeType || "","i")},
-            // type: { $regex: new RegExp(propertyType || "","i")},
-            // price:{$lte: maxPrice || Number.MAX_SAFE_INTEGER},
                 $or: [
                     { city: { $regex: new RegExp(location || "", "i") } },
                     { location: { $regex: new RegExp(location || "", "i") } }
                 ],
         },
-        "city location houseNo pinCode purposeType type price images"
+        "city location streetNo pinCode purposeType type price images"
         ).populate("user").exec();
         res.status(200).json({properties:properties});
     }catch (err){
@@ -126,8 +100,6 @@ const getPropertyById = async(req,res,next) => {
         next(error);
     }
 }
-
-
 
 const getAvailableLocations = async(req,res,next) => {
     try{

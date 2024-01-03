@@ -70,10 +70,6 @@ const PropertyDisplay = () => {
                         background: "#f77f00",
                         color: "aliceblue"
                     } : {background: "#253237", color: "#5c6b73"}} onClick={handleType}><span>Flat</span></button>
-                    <button style={selectedType !== "Plot" ? {
-                        background: "#1b4332",
-                        color: "aliceblue"
-                    } : {background: "#253237", color: "#5c6b73"}} onClick={handleType}><span>Plot</span></button>
                     <button style={selectedType !== "Office" ? {
                         background: "#a4133c",
                         color: "aliceblue"

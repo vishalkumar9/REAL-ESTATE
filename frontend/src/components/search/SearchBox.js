@@ -33,6 +33,9 @@ const SearchBox = () => {
           )
           history('/property')
         }
+        else{
+            throw new Error("Didn't find any property for this location");
+        }
     } catch (err) {
       toast.error(err.message, { autoClose: 1000 })
     }

@@ -6,10 +6,6 @@ const propertySchema = new Schema({
         type: Schema.Types.ObjectId,
         ref:'User'
     },
-    propertyType: {
-        type: String,
-        required: true
-    },
     purposeType: {
         type: String,
         required: true,
@@ -20,50 +16,15 @@ const propertySchema = new Schema({
         required: true,
         index: true,
     },
-    constructionStatus: {
-        type: String,
-        required: function (){
-            return this.type!=="Plot";
-        }
-    },
-    ageOfProperty: {
-        type: String,
-        required: false
-    },
-    bhk: {
-        type: String,
-        required: function (){
-            return this.propertyType === "Residential";
-        }
-    },
-    countOfBathroom: {
-        type: String,
-        required: function (){
-            return this.type!=="Plot" && this.propertyType!=="Commercial";
-        }
-    },
-    builtUpArea: {
-        type: String,
-        required: true
-    },
     price: {
         type: String,
         required: true,
         index: true,
     },
-    length: {
+    description:{
         type: String,
-        required: false
-    },
-    width: {
-        type: String,
-        required: false
-    },
-    furnishType: {
-        type: String,
-        required: function (){
-            return this.type!=="Plot" && this.propertyType!=="Commercial";
-        }
+        required: true,
+        index: true,
     },
     city:{
         type: String,
@@ -78,7 +39,7 @@ const propertySchema = new Schema({
         type:String,
         required: true
     },
-    houseNo:{
+    streetNo:{
         type:String,
         required: true
     },

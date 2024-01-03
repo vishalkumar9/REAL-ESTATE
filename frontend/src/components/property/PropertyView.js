@@ -53,9 +53,9 @@ const PropertyView = () => {
                     <div className="details">
                     <div className="main_details">
                         <span style={{color:"#0f172a", fontSize:"30px"}}>{details.purposeType} {details.price} 💸</span>
-                        <span style={{color:"#0f172a", fontSize:"20px"}}>🪧 {details.houseNo} {details.location}</span>
+                        <span style={{color:"#0f172a", fontSize:"20px"}}>🪧 {details.streetNo} {details.location}</span>
                         <span style={{color:"#0f172a", fontSize:"20px"}}>{details.city} {details.pinCode}</span>
-                        <span style={{color:"#0f172a", fontSize:"15px"}}>`Explore an outstanding property opportunity in the heart of {details.city} at {details.houseNo} on {details.location}. This well-maintained property spans {details.builtUpArea} square feet, ready for occupancy, and boasts a generous 70 feet in length. With a competitive {details.purposeType} of ₹{details.price}, this space is suitable for various purposes, offering versatility for your specific needs. Whether it's for a commercial venture, office space, or a creative endeavor, the property's strategic location and modern features make it an attractive choice. Take a virtual tour through the provided images and imagine the potential that this neutral and adaptable space holds for your unique vision.`</span>
+                        <span style={{color:"#0f172a", fontSize:"15px"}}>{details.description}</span>
                     </div>
                     <div className="contact_details"></div>
                     </div>
