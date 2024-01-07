@@ -1,0 +1,26 @@
+.modal .custom_div input:focus{
+    border-color: #cbd5e1;
+    box-shadow: none !important;
+}
+
+.modal .custom_div .btn-primary{
+    background-color: #15803d;
+    border-color: #22c55e;
+    color: #f0fdf4;
+}
+
+.modal .custom_div .btn-primary:active{
+    background-color: #f0fdf4;
+    color: #15803d;
+}
+
+.modal .custom_div .btn-secondary{
+    background-color: #991b1b;
+    border-color: #b91c1c;
+    color: #fef2f2;
+}
+
+.modal .custom_div .btn-secondary:active{
+    background-color: #fef2f2;
+    color: #991b1b;
+}

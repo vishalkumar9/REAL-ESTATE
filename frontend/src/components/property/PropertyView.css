@@ -87,3 +87,35 @@
     font-size: 200px;
     text-shadow: 1px 1px 0 aliceblue;
 }
+
+.property_view .other_details{
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.property_view .other_details button{
+    width: 170px;
+    height: 3rem;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: #020617;
+    color:#e2e8f0;
+    border-radius: 5px;
+    transition: 50ms ease-in-out;
+}
+
+.property_view .other_details button:hover{
+    width: 180px;
+    height: 3.5rem;
+    color: #020617;
+    background-color:#e2e8f0;
+}
+
+.property_view .other_details button:active{
+    background-color: #020617;
+    color:#e2e8f0;
+}
+

@@ -11,9 +11,8 @@ const server = express();
 
 const userRoutes = require("./routes/userRoutes");
 const propertyRoutes = require("./routes/propertyRoutes");
+const notificationRoutes = require("./routes/notificationRoutes");
 const formDataParser = require("./middleware/parseData");
-
-
 
 server.use(formDataParser);
 
@@ -30,6 +29,7 @@ server.use((req, res, next) => {
 
 server.use("/users",userRoutes);
 server.use("/property",propertyRoutes);
+server.use("/notifications",notificationRoutes);
 
 server.use((req,res,next)=>{
     const error = new HttpError("Page Not Found",404);

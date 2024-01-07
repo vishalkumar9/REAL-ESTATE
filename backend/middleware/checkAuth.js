@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 const HttpError = require("../schema/httpError");
 
 module.exports = (req, res, next) => {
+    console.log(req);
     if (req.method === "OPTIONS") return next();
     try {
         const token = req.headers.authorization.split(" ")[1];

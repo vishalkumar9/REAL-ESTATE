@@ -71,7 +71,6 @@ export const useForm = () => {
 
   const handleChange = (e) => {
     e.preventDefault();
-    console.log(e.target);
     setPropertyData((propertyData) => ({
       ...propertyData,
       [e.target.name]: e.target.value,

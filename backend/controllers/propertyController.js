@@ -61,7 +61,6 @@ const uploadProperty = async(req,res,next) => {
 
 
 const searchProperty = async(req,res,next) => {
-    console.log(req.query);
     const location = req.query.location;
     let properties;
     try{
